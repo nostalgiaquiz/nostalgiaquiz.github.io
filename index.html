@@ -1,0 +1,423 @@
+<!-- ===== חידון הנוסטלגיה של שנות ה-80 וה-90 | קובץ אחד: HTML + CSS + JS ===== -->
+<meta name="google-adsense-account" content="ca-pub-4032258096506175">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+#nq{--ink:#1f2a44;--paper:#fff4dc;--sun:#ffc93c;--red:#e8423f;--teal:#1b998b;--ok:#22a45d;--bad:#e03b3b;
+direction:rtl;text-align:right;font-family:'Rubik',Arial,sans-serif;color:var(--ink);
+background:var(--paper) radial-gradient(#ecdcb3 1.2px,transparent 1.3px) 0 0/16px 16px;
+max-width:560px;margin:0 auto;padding:14px 14px 28px;box-sizing:border-box;border-radius:18px;line-height:1.4;position:relative}
+#nq *{box-sizing:border-box;font-family:inherit}
+#nq .hd{text-align:center;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:16px 10px 20px;box-shadow:5px 5px 0 var(--ink);margin-bottom:14px;position:relative;overflow:hidden}
+#nq .hd:after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(90deg,var(--red) 0 25%,var(--sun) 25% 50%,var(--teal) 50% 75%,var(--ink) 75%)}
+#nq .hd h1{margin:0;font-size:1.5rem;font-weight:800;line-height:1.2}
+#nq .hd p{margin:5px 0 0;font-size:.95rem;font-weight:500}
+
+/* ===== אזורי פרסומת (מוסתרים כברירת מחדל) =====
+   כשהאתר יאושר באדסנס: שנו את display:none ל-display:block בכלל הבא (.ad-slot),
+   והדביקו את קוד המודעה בתוך ה-div עם class="ad-inner" בכל אחד משני האזורים. */
+#nq .ad-slot{display:none; /* <<< שנו ל-display:block אחרי אישור אדסנס */
+margin:10px 0;text-align:center;min-height:100px;overflow:hidden}
+
+#nq .sticky{position:sticky;top:0;z-index:5;background:var(--paper);padding:8px 0 6px;margin-bottom:6px;border-bottom:3px dashed #d9c48f}
+#nq .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;font-weight:700}
+#nq .cnt{font-size:.95rem}
+#nq .score{background:var(--ink);color:var(--sun);padding:4px 14px;border-radius:20px;white-space:nowrap;font-size:1.05rem;position:relative}
+#nq .score b{font-size:1.25rem}
+#nq .plus{position:absolute;left:8px;top:-4px;color:var(--ok);font-weight:800;opacity:0;pointer-events:none}
+#nq .plus.go{animation:rise .9s ease-out}
+@keyframes rise{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-26px)}}
+#nq .track{height:16px;background:#fff;border:3px solid var(--ink);border-radius:20px;overflow:hidden}
+#nq .fill{height:100%;width:0;transition:width .35s;background:repeating-linear-gradient(45deg,var(--teal) 0 10px,#22b3a2 10px 20px)}
+#nq .tag{display:inline-block;background:var(--sun);border:2px solid var(--ink);border-radius:20px;padding:2px 12px;font-size:.85rem;font-weight:700;margin:6px 0}
+#nq .qbox{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:18px 14px;font-size:1.3rem;font-weight:700;margin-bottom:14px;box-shadow:5px 5px 0 var(--red)}
+#nq .ans{display:flex;align-items:center;gap:12px;width:100%;min-height:60px;margin:0 0 10px;padding:10px 12px;font-size:1.1rem;font-weight:500;
+text-align:right;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:14px;cursor:pointer;box-shadow:0 4px 0 var(--ink);
+-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .08s,box-shadow .08s}
+#nq .ans:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+#nq .ans i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800}
+#nq .ans.ok{background:var(--ok);color:#fff;border-color:#157a42;box-shadow:0 4px 0 #157a42;animation:pop .3s}
+#nq .ans.bad{background:var(--bad);color:#fff;border-color:#a82020;box-shadow:0 4px 0 #a82020}
+@keyframes pop{50%{transform:scale(1.03)}}
+#nq .ans:disabled{cursor:default}
+#nq .big{display:block;width:100%;min-height:60px;margin-top:10px;padding:14px;font-size:1.2rem;font-weight:800;color:#fff;background:var(--red);
+border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;text-align:center;text-decoration:none;touch-action:manipulation}
+#nq .big:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+#nq .big.fb{background:#1877f2}
+#nq .big.wa{background:#1fa855}
+#nq .big.cp{background:var(--sun);color:var(--ink)}
+#nq .big.im{background:var(--ink)}
+#nq .big.re{background:var(--teal)}
+#nq .hide{display:none!important}
+#nq .res{text-align:center;padding-top:6px}
+#nq .res .emo{font-size:3.4rem}
+#nq .res .sc{font-size:1.9rem;font-weight:800;margin:6px 0}
+#nq .res .tx{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:14px;font-size:1.1rem;margin:10px 0 14px;box-shadow:5px 5px 0 var(--sun)}
+#nq .card{width:100%;border:3px solid var(--ink);border-radius:14px;margin-top:6px}
+#nq .hint{font-size:.85rem;margin:6px 0 4px}
+#nq .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:12px;font-weight:500;z-index:99;max-width:90%;text-align:center}
+#nq .pz{width:88px;height:88px;flex:none;display:block}
+#nq .pz.warn{animation:tick .5s ease-in-out infinite alternate}
+@keyframes tick{to{transform:scale(1.12)}}
+#nq .blur{filter:blur(9px);-webkit-filter:blur(9px);user-select:none;-webkit-user-select:none;pointer-events:none}
+@media (prefers-reduced-motion:reduce){#nq *{animation:none!important;transition:none!important}}
+</style>
+
+<div id="nq">
+  <div class="hd">
+    <h1>חידון הנוסטלגיה של פעם</h1>
+    <p>שנות ה-80 וה-90 בישראל ובעולם – כמה אתם זוכרים?</p>
+    <p id="dl" style="font-weight:700;color:#e8423f"></p>
+  </div>
+
+  <!-- פרסומת עליונה (מוסתרת) -->
+  <div class="ad-slot" id="adTop"><div class="ad-inner"></div></div>
+
+  <div id="quiz">
+    <div class="sticky">
+      <div class="row">
+        <span class="cnt" id="cnt"></span>
+        <svg class="pz" id="pz" viewBox="0 0 44 44" role="img" aria-label="טיימר">
+          <clipPath id="nqclip"><path id="nqc"/></clipPath>
+          <circle cx="22" cy="22" r="20" fill="#fff4dc" stroke="#c98a3a" stroke-width="4"/>
+          <path id="nqw"/>
+          <g clip-path="url(#nqclip)" fill="#7a1f1a" fill-opacity=".5">
+            <circle cx="15" cy="13" r="2.6"/><circle cx="29" cy="14" r="2.6"/><circle cx="33" cy="26" r="2.6"/>
+            <circle cx="22" cy="32" r="2.6"/><circle cx="11" cy="26" r="2.6"/><circle cx="22" cy="22" r="2.2"/>
+          </g>
+          <circle cx="22" cy="22" r="20" fill="none" stroke="#1f2a44" stroke-width="1.5"/>
+          <text id="nqt" x="22" y="28.5" text-anchor="middle" font-size="17" font-weight="800" fill="#fff" stroke="#1f2a44" stroke-width="3" paint-order="stroke">30</text>
+        </svg>
+        <span class="score">✅ נכונות: <b id="sc">0</b><span class="plus" id="plus">+1</span></span>
+      </div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+    <span class="tag" id="tag"></span>
+    <div class="qbox" id="qtext"></div>
+    <div id="answers"></div>
+    <button class="big hide" id="next" type="button">לשאלה הבאה 👈</button>
+  </div>
+
+  <div class="res hide" id="result">
+    <div class="emo" id="remo"></div>
+    <div class="sc" id="rsc"></div>
+    <div class="tx" id="rtx"></div>
+    <img class="card" id="cardImg" alt="כרטיס התוצאה שלי">
+    <div class="hint">לחצו לחיצה ארוכה על התמונה כדי לשמור אותה</div>
+    <button class="big cp" id="shCopy" type="button">העתיקו תוצאה לתגובה בקבוצה 📋</button>
+    <button class="big im" id="shImg" type="button">שתפו תמונת תוצאה 🖼️</button>
+    <a class="big fb" id="shFb" target="_blank" rel="noopener">שתפו בפייסבוק 🚀</a>
+    <a class="big wa" id="shWa" target="_blank" rel="noopener">שלחו לחברים בוואטסאפ 💬</a>
+    <button class="big re" id="again" type="button">שחקו שוב 🔁</button>
+  </div>
+
+  <!-- פרסומת תחתונה (מוסתרת) -->
+  <div class="ad-slot" id="adBottom"><div class="ad-inner"></div></div>
+  <div class="toast hide" id="toast"></div>
+</div>
+
+<script>
+(function () {
+  /* קישור לפוסט החידון בקבוצת הפייסבוק שלכם (אופציונלי).
+     אם תמלאו, הכפתור "העתיקו תוצאה" יעתיק את הטקסט ויפתח את הפוסט כדי שהגולש ידביק תגובה.
+     דוגמה: "https://www.facebook.com/groups/123456789/posts/987654321/" */
+  var GROUP_POST_URL = "";
+
+  /* ===== START QUESTIONS (להחלפה יומית: מחליפים רק את מה שבין START ל-END) ===== */
+  var DAILY = {
+    label: "1.11.2026",
+    questions: [
+    ["קולנוע", "איזה סרט של סטיבן שפילברג מ-1993 מספר את סיפורו של אוסקר שינדלר?", "רשימת שינדלר", "הצבע סגול", "אי.טי.", "מלתעות"],
+    ["קולנוע", "מי גילם את אינדיאנה ג'ונס בסרטי ההרפתקאות המפורסמים?", "האריסון פורד", "סין קונרי", "מל גיבסון", "בראד פיט"],
+    ["קולנוע", "איזה סרט דיסני מ-1991 מציג את הנסיכה בל ואת הבהמה?", "היפה והחיה", "אלאדין", "בת הים הקטנה", "פוקהונטס"],
+    ["קולנוע", "מי גילם את הדמות הראשית בסרט 'פורסט גאמפ' (1994)?", "טום הנקס", "טום קרוז", "בראד פיט", "ג'ים קארי"],
+    ["קולנוע", "איזה סרט מ-1995 היה הסרט המצויר הארוך הראשון שנוצר כולו במחשב?", "צעצוע של סיפור", "מלך האריות", "היפה והחיה", "שרק"],
+    ["קולנוע", "מי גילם את ג'יימס בונד בסרט 'גולדן איי' (1995)?", "פירס ברוסנן", "רוג'ר מור", "שון קונרי", "טימותי דלטון"],
+    ["קולנוע", "איך נקרא הסרט מ-1990 על ילד שנשכח לבד בבית בחג המולד?", "שכחו אותי בבית", "הגוניז", "ביטלג'וס", "ג'ומנג'י"],
+    ["קולנוע", "איך קוראים לממציא המטורף בסרט 'חזרה לעתיד'?", "ד״ר אמט בראון", "ד״ר ג'קיל", "ד״ר סוס", "ד״ר ווטסון"],
+    ["קולנוע", "מי גילם את באטמן בסרט של טים ברטון מ-1989?", "מייקל קיטון", "ג'ורג' קלוני", "וואל קילמר", "כריסטיאן בייל"],
+    ["טלוויזיה וסדרות", "איך קראו למכונית המדברת בסדרה 'נייט ריידר'?", "קיט", "הרבי", "האל", "ג'ני"],
+    ["טלוויזיה וסדרות", "איזו שחקנית גילמה את רייצ'ל גרין בסדרה 'חברים'?", "ג'ניפר אניסטון", "קורטני קוקס", "ליסה קודרו", "דרו בארימור"],
+    ["טלוויזיה וסדרות", "איזה מאכל אוהב הכי הרבה החתול גארפילד?", "לזניה", "פיצה", "המבורגר", "סושי"],
+    ["טלוויזיה וסדרות", "מי גילם את הדמות המפורסמת מר ביין?", "רואן אטקינסון", "ג'ון קליז", "ג'ים קארי", "יו גרנט"],
+    ["טלוויזיה וסדרות", "ערוץ הילדים החל לשדר בישראל ב-1989 דרך...?", "הטלוויזיה בכבלים", "לוויין", "ערוץ 1", "הרדיו"],
+    ["טלוויזיה וסדרות", "איך קוראים לצפרדע הירוקה והמפורסמת של 'המפטים'?", "קרמיט", "פיגי", "פוזי", "גונזו"],
+    ["מוזיקה", "מי הוציא ב-1984 את האלבום 'Born in the U.S.A.'?", "ברוס ספרינגסטין", "בילי ג'ואל", "פיל קולינס", "בון ג'ובי"],
+    ["מוזיקה", "מי ביצעה את 'My Heart Will Go On' מהסרט 'טיטניק'?", "סלין דיון", "מדונה", "ויטני יוסטון", "מריה קארי"],
+    ["מוזיקה", "איזו להקה בריטית הוציאה ב-1995 את 'Wonderwall'?", "אואזיס", "בלר", "פולפ", "רדיוהד"],
+    ["מוזיקה", "איזו להקת בנים הוציאה ב-1997 את 'Everybody (Backstreet's Back)'?", "בקסטריט בויז", "טייק דאט", "ניו קידס און דה בלוק", "אנסינק"],
+    ["מוזיקה", "מי שר את 'U Can't Touch This' ב-1990?", "MC האמר", "וניל אייס", "קוליו", "סנופ דוג"],
+    ["מוזיקה", "איזו להקה שוודית ביצעה את 'It Must Have Been Love' (1990)?", "רוקסט", "אבבא", "אייס אוף בייס", "יורופ"],
+    ["מוזיקה", "באיזו שנה הלך לעולמו פרדי מרקורי, סולן להקת קווין?", "1991", "1985", "1989", "1995"],
+    ["מוזיקה", "איזו להקה גרמנית ביצעה את 'Wind of Change' (1990)?", "סקורפיונס", "בוני אם", "מודרן טוקינג", "קראפטוורק"],
+    ["מוזיקה", "איזה שיר ישראלי הגיע למקום השלישי באירוויזיון 1991 ברומא?", "כאן", "זה רק ספורט", "הללויה", "חי"],
+    ["מוזיקה", "מי ביצעה את 'זה רק ספורט' באירוויזיון 1992?", "דפנה דקל", "עפרה חזה", "שרית חדד", "גלי עטרי"],
+    ["מוזיקה", "איזו מדינה זכתה באירוויזיון 1999 שנערך בישראל?", "שוודיה", "ישראל", "גרמניה", "איסלנד"],
+    ["משחקים וטכנולוגיה", "איך קוראים לאחיו של מריו בסדרת המשחקים?", "לואיג'י", "וריו", "טואד", "יושי"],
+    ["משחקים וטכנולוגיה", "מי הגיבור הראשי בסדרת המשחקים 'זלדה'?", "לינק", "זלדה", "גנון", "מריו"],
+    ["משחקים וטכנולוגיה", "איזה משחק יריות מ-1993 הפך לתופעה במחשבים?", "דום", "טומב ריידר", "הלף לייף", "פונג"],
+    ["משחקים וטכנולוגיה", "איזה דפדפן אינטרנט היה פופולרי באמצע שנות ה-90?", "נטסקייפ", "כרום", "פיירפוקס", "ספארי"],
+    ["משחקים וטכנולוגיה", "איזה גודל היה לדיסקט שהחליף את הדיסקט הגדול (5.25 אינץ') ונפוץ בשנות ה-90?", "3.5 אינץ'", "1 אינץ'", "8 אינץ'", "12 אינץ'"],
+    ["משחקים וטכנולוגיה", "באיזו שנה הציגה אפל את מחשב המקינטוש הראשון?", "1984", "1979", "1989", "1995"],
+    ["משחקים וטכנולוגיה", "איזה משחק פשוט היה מותקן בטלפונים של נוקיה משנת 1997?", "נחש (סנייק)", "טטריס", "פק-מן", "פונג"],
+    ["משחקים וטכנולוגיה", "באיזו שנה הוקם מנוע החיפוש גוגל?", "1998", "1991", "1994", "2001"],
+    ["משחקים וטכנולוגיה", "מי המציא את רשת ה-World Wide Web בתחילת שנות ה-90?", "טים ברנרס-לי", "ביל גייטס", "סטיב ג'ובס", "לארי פייג'"],
+    ["משחקים וטכנולוגיה", "איזו חברה הפעילה את רשת הסלולר הראשונה בישראל ב-1986?", "פלאפון", "סלקום", "פרטנר", "אורנג'"],
+    ["משחקים וטכנולוגיה", "איזו חברה הצטרפה ב-1995 לשוק הסלולר בישראל לצד פלאפון?", "סלקום", "פרטנר", "הוט מובייל", "גולן טלקום"],
+    ["ספורט", "מי כבש את 'יד האלוהים' במונדיאל 1986?", "דייגו מראדונה", "פלה", "זינדין זידאן", "מישל פלאטיני"],
+    ["ספורט", "באיזו עיר נערכה אולימפיאדת 1988?", "סיאול", "לוס אנג'לס", "ברצלונה", "מוסקבה"],
+    ["ספורט", "איך נקראה נבחרת הכדורסל של ארה״ב באולימפיאדת 1992?", "נבחרת החלומות", "נבחרת הכוכבים", "נבחרת הענקים", "נבחרת האגדות"],
+    ["ספורט", "באיזו עיר נערכה אולימפיאדת 1996?", "אטלנטה", "סידני", "סיאול", "פריז"],
+    ["ספורט", "מי אימן את מכבי תל אביב בכדורסל כשזכתה באליפות אירופה ב-1977?", "רלף קליין", "דיוויד בלאט", "צביקה שרף", "פיני גרשון"],
+    ["ספורט", "את איזו קבוצה איטלקית ניצחה מכבי תל אביב בגמר אליפות אירופה 1977?", "וארזה", "בולוניה", "מילאנו", "טורינו"],
+    ["ספורט", "באיזו עיר זכתה מכבי תל אביב באליפות אירופה בשנת 1981?", "שטרסבורג", "בלגרד", "מילאנו", "אתונה"],
+    ["ספורט", "איזו מדליה זכתה נבחרת ישראל בכדורסל באליפות אירופה ב-1979?", "כסף", "זהב", "ארד", "לא זכתה במדליה"],
+    ["ישראל והעולם", "מי היה ראש ממשלת ישראל בעת חתימת הסכמי אוסלו ב-1993?", "יצחק רבין", "שמעון פרס", "יצחק שמיר", "בנימין נתניהו"],
+    ["ישראל והעולם", "באיזו שנה נפתח הקניון המודרני הראשון בישראל?", "1985", "1977", "1990", "1993"],
+    ["ישראל והעולם", "מי טבע את המילה 'קניון' מהצירוף קניות וחניון?", "דוד עזריאלי", "שרי אריסון", "יצחק תשובה", "נוחי דנקנר"],
+    ["ישראל והעולם", "באיזה קניון נפתח הסניף הראשון של מקדונלד'ס בישראל ב-1993?", "קניון איילון", "דיזנגוף סנטר", "קניון הזהב", "קניון רננים"],
+    ["צעצועים ותרבות", "כמה צבעים שונים יש בקוביית רוביק הקלאסית?", "שישה", "ארבעה", "חמישה", "שמונה"]
+    ]
+  };
+  /* ===== END QUESTIONS ===== */
+
+  var TIERS = [
+    { min: 45, emo: "👑", title: "מלך השכונה", msg: "אלוהי הנוסטלגיה! היית מלך השכונה, ידעת הכול – מהקיוסק ועד ערוץ הילדים!" },
+    { min: 35, emo: "🏆", title: "זיכרון פנטסטי", msg: "וואו! זיכרון פנטסטי. ברור שגדלת על במבה, קלטות וידאו ושעות מול הטלוויזיה." },
+    { min: 25, emo: "😎", title: "ותיק ומנוסה", msg: "לא רע בכלל! יש לך זיכרון טוב, אבל כמה דברים עוד חמקו לך מהילדות." },
+    { min: 15, emo: "🤔", title: "הזיכרון קצת חלוד", msg: "הזיכרון קצת חלוד... זמן לשבת עם חברים ולהעלות זיכרונות מהשכונה." },
+    { min: 0, emo: "📼", title: "צריך לרענן קלטת", msg: "נראה שפספסת את הילדות שלנו... תנסו שוב, ואולי תשאלו את ההורים!" }
+  ];
+  var LETTERS = ["א", "ב", "ג", "ד"];
+
+  var qs, idx, score, locked, tier, shareText, cardBlob, timer, t0, mode;
+  var TIME = 30; /* שניות לכל שאלה */
+  var $ = function (id) { return document.getElementById(id); };
+
+  function shuffle(a) {
+    var i, j, t;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.remove("hide");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { t.classList.add("hide"); }, 3500);
+  }
+
+  /* מצב "מוכנים?": השאלה הראשונה מוצגת, אבל התשובות נעולות והטיימר לא רץ עד הלחיצה על הכפתור */
+  function setAnswersDisabled(d) {
+    var all = $("answers").children, i;
+    for (i = 0; i < all.length; i++) all[i].disabled = d;
+  }
+
+  function start() {
+    stopTimer();
+    qs = shuffle(DAILY.questions.map(function (r) { return { cat: r[0], q: r.slice(1) }; }));
+    idx = 0; score = 0; mode = "ready";
+    $("dl").textContent = "החידון של " + DAILY.label;
+    $("result").classList.add("hide");
+    $("quiz").classList.remove("hide");
+    show();
+    stopTimer();
+    drawPizza(1, TIME);
+    locked = true;
+    setAnswersDisabled(true);
+    $("qtext").classList.add("blur");
+    $("answers").classList.add("blur");
+    $("next").textContent = "מוכנים? יאללה, מתחילים! 🚀";
+    $("next").classList.remove("hide");
+  }
+
+  function show() {
+    var item = qs[idx], q = item.q, i, opts = [], box = $("answers");
+    locked = false;
+    $("cnt").textContent = "שאלה " + (idx + 1) + " מתוך " + qs.length;
+    $("fill").style.width = (idx / qs.length * 100) + "%";
+    $("sc").textContent = score;
+    $("tag").classList.remove("hide");
+    $("tag").textContent = item.cat;
+    $("qtext").textContent = q[0];
+    $("next").classList.add("hide");
+    $("next").textContent = (idx === qs.length - 1) ? "לתוצאה הסופית 🏁" : "לשאלה הבאה 👈";
+    for (i = 1; i < 5; i++) opts.push({ t: q[i], ok: i === 1 });
+    shuffle(opts);
+    box.innerHTML = "";
+    opts.forEach(function (o, n) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "ans";
+      b.innerHTML = "<i>" + LETTERS[n] + "</i><span></span>";
+      b.lastChild.textContent = o.t;
+      b._ok = o.ok;
+      b.onclick = function () { pick(b, o.ok); };
+      box.appendChild(b);
+    });
+    startTimer();
+  }
+
+  function pick(btn, ok) {
+    if (locked) return;
+    locked = true;
+    stopTimer();
+    var all = $("answers").children, i;
+    for (i = 0; i < all.length; i++) {
+      all[i].disabled = true;
+      if (all[i]._ok) { all[i].classList.add("ok"); all[i].firstChild.textContent = "✓"; }
+    }
+    if (ok) {
+      score++;
+      var p = $("plus"); p.classList.remove("go"); void p.offsetWidth; p.classList.add("go");
+    } else {
+      btn.classList.add("bad"); btn.firstChild.textContent = "✗";
+    }
+    $("sc").textContent = score;
+    $("fill").style.width = ((idx + 1) / qs.length * 100) + "%";
+    $("next").classList.remove("hide");
+  }
+
+  /* ===== טיימר פיצה: ירוק -> אדום בהדרגה, ו"פרוסה" נאכלת עם הזמן ===== */
+  function drawPizza(f, sec) {
+    var a = f * 2 * Math.PI, r = 17, d;
+    if (f >= 0.999) {
+      d = "M22 5 A17 17 0 1 1 22 39 A17 17 0 1 1 22 5 Z";
+    } else if (f <= 0.001) {
+      d = "M22 22 Z";
+    } else {
+      d = "M22 22 L22 5 A17 17 0 " + (a > Math.PI ? 1 : 0) + " 1 " +
+          (22 + r * Math.sin(a)).toFixed(2) + " " + (22 - r * Math.cos(a)).toFixed(2) + " Z";
+    }
+    $("nqw").setAttribute("d", d);
+    $("nqc").setAttribute("d", d);
+    $("nqw").setAttribute("fill", "hsl(" + Math.round(120 * f) + ",72%,46%)");
+    $("nqt").textContent = sec;
+    $("pz").classList.toggle("warn", sec <= 5 && sec > 0);
+  }
+  function stopTimer() { clearInterval(timer); }
+  function startTimer() {
+    stopTimer();
+    t0 = Date.now();
+    drawPizza(1, TIME);
+    timer = setInterval(function () {
+      var left = TIME - (Date.now() - t0) / 1000;
+      if (left <= 0) { stopTimer(); drawPizza(0, 0); timeUp(); return; }
+      drawPizza(left / TIME, Math.ceil(left));
+    }, 100);
+  }
+  function timeUp() {
+    if (locked) return;
+    locked = true;
+    var all = $("answers").children, i;
+    for (i = 0; i < all.length; i++) {
+      all[i].disabled = true;
+      if (all[i]._ok) { all[i].classList.add("ok"); all[i].firstChild.textContent = "✓"; }
+    }
+    $("fill").style.width = ((idx + 1) / qs.length * 100) + "%";
+    $("next").classList.remove("hide");
+    toast("⏰ נגמר הזמן! התשובה הנכונה מסומנת בירוק");
+  }
+
+  $("next").onclick = function () {
+    if (mode === "ready") {
+      mode = "play"; locked = false;
+      setAnswersDisabled(false);
+      $("qtext").classList.remove("blur");
+      $("answers").classList.remove("blur");
+      $("next").classList.add("hide");
+      startTimer();
+      return;
+    }
+    idx++;
+    if (idx >= qs.length) finish(); else show();
+    window.scrollTo(0, $("nq").offsetTop);
+  };
+
+  /* ===== כרטיס תוצאה כתמונה (לשיתוף בפייסבוק ובוואטסאפ) ===== */
+  function drawCard(cb) {
+    var c = document.createElement("canvas"), x, W = 1080;
+    c.width = W; c.height = W;
+    x = c.getContext("2d");
+    function paint() {
+      var cols = ["#e8423f", "#ffc93c", "#1b998b", "#1f2a44"], i;
+      x.fillStyle = "#fff4dc"; x.fillRect(0, 0, W, W);
+      for (i = 0; i < 4; i++) { x.fillStyle = cols[i]; x.fillRect(0, i * 22, W, 22); x.fillRect(0, W - 88 + i * 22, W, 22); }
+      x.fillStyle = "#fff"; x.strokeStyle = "#1f2a44"; x.lineWidth = 8;
+      x.fillRect(70, 150, W - 140, 780); x.strokeRect(70, 150, W - 140, 780);
+      x.direction = "rtl"; x.textAlign = "center"; x.fillStyle = "#1f2a44";
+      x.font = "800 72px Rubik, Arial"; x.fillText("חידון הנוסטלגיה של פעם", W / 2, 250);
+      x.font = "500 40px Rubik, Arial"; x.fillText("שנות ה-80 וה-90 בישראל ובעולם", W / 2, 310);
+      x.font = "130px Arial"; x.fillText(tier.emo, W / 2, 470);
+      x.font = "800 190px Rubik, Arial"; x.fillText(score + "/" + qs.length, W / 2, 680);
+      x.fillStyle = "#e8423f"; x.font = "800 66px Rubik, Arial"; x.fillText(tier.title, W / 2, 790);
+      x.fillStyle = "#1f2a44"; x.font = "500 38px Rubik, Arial"; x.fillText("מי מצליח לנצח אותי? 👇", W / 2, 870);
+      x.font = "500 30px Rubik, Arial"; x.fillText(location.host, W / 2, 1000);
+      c.toBlob(function (b) { cb(b); }, "image/png");
+    }
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load("800 60px Rubik").then(paint, paint);
+    } else { paint(); }
+  }
+
+  function finish() {
+    var n = qs.length, i, url = location.href.split("#")[0];
+    stopTimer();
+    $("fill").style.width = "100%";
+    for (i = 0; i < TIERS.length; i++) { if (score >= TIERS[i].min) { tier = TIERS[i]; break; } }
+    $("quiz").classList.add("hide");
+    $("result").classList.remove("hide");
+    $("remo").textContent = tier.emo;
+    $("rsc").textContent = "התוצאה שלך: " + score + " מתוך " + n;
+    $("rtx").textContent = tier.msg;
+
+    shareText = tier.emo + " עניתי נכון על " + score + " מתוך " + n + " שאלות בחידון הנוסטלגיה של שנות ה-80 וה-90! מי מצליח לנצח אותי? 👇\n" + url;
+    $("shFb").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url) + "&quote=" + encodeURIComponent(shareText.split("\n")[0]);
+    $("shWa").href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
+
+    cardBlob = null;
+    $("cardImg").removeAttribute("src");
+    drawCard(function (b) {
+      cardBlob = b;
+      if (b) $("cardImg").src = URL.createObjectURL(b);
+    });
+  }
+
+  /* העתקת טקסט התוצאה – להדבקה כתגובה בקבוצה */
+  $("shCopy").onclick = function () {
+    if (GROUP_POST_URL) window.open(GROUP_POST_URL, "_blank");
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = shareText; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("לא הצלחנו להעתיק. סמנו והעתיקו ידנית."); }
+      document.body.removeChild(ta);
+    }
+    function done() { toast("הועתק! הדביקו את התוצאה כתגובה בפוסט החידון בקבוצה 📋"); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareText).then(done, fallback);
+    } else { fallback(); }
+  };
+
+  /* שיתוף התמונה: בטלפון נפתח תפריט השיתוף (פייסבוק, וואטסאפ ועוד); אחרת מורידים את הקובץ */
+  $("shImg").onclick = function () {
+    if (!cardBlob) { toast("התמונה עדיין נוצרת, נסו שוב בעוד רגע"); return; }
+    var file;
+    try { file = new File([cardBlob], "nostalgia-score.png", { type: "image/png" }); } catch (e) { file = null; }
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], text: shareText }).catch(function () {});
+    } else {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(cardBlob); a.download = "nostalgia-score.png";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      toast("התמונה נשמרה. אם לא, לחצו עליה לחיצה ארוכה ושמרו.");
+    }
+  };
+
+  $("again").onclick = function () { start(); window.scrollTo(0, $("nq").offsetTop); };
+
+  start();
+})();
+</script>
