@@ -6,88 +6,93 @@
 <title>סולם הנוסטלגיה | משחק טריוויה משנות ה-80 וה-90</title>
 <meta name="description" content="15 שאלות נוסטלגיה משנות ה-80 וה-90 מהארץ ומהעולם, שלושה עזרים ומיליון נקודות בסוף הסולם. כמה גבוה תעלו?">
 <link rel="canonical" href="https://nostalgiaquiz.github.io">
-<meta name="theme-color" content="#14071c">
+<meta name="theme-color" content="#070b1f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="סולם הנוסטלגיה">
 <meta property="og:title" content="סולם הנוסטלגיה: 15 שאלות, שלושה עזרים, מיליון נקודות">
 <meta property="og:description" content="משחק טריוויה על שנות ה-80 וה-90 בארץ ובעולם. כמה גבוה תעלו בסולם?">
-<meta property="og:url" content="https://nostalgiaquiz.github.io">
+<meta property="og:url" content="https://nostalgiaquiz.github.io/ladder/">
 <meta property="og:image" content="https://nostalgiaquiz.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0f24;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.15);--tx:#f4f6ff;--mut:#9aa6c8;--acc:#7c5cff;--acc2:#00d4ff;--gold:#ffcb47;--ok:#19c37d;--bad:#ff5470}
+:root{--bg:#070b1f;--line:rgba(255,255,255,.14);--tx:#f5f7ff;--mut:#9aa6c8;--acc:#7c5cff;--acc2:#00d4ff;--gold:#ffcb47;--ok:#19c37d;--bad:#ff5470}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:'Heebo',system-ui,Arial,sans-serif;color:var(--tx);background:var(--bg);min-height:100vh;overflow-x:hidden;position:relative;line-height:1.5}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(124,92,255,.45),transparent 70%),radial-gradient(circle at 92% 92%,rgba(0,212,255,.18),transparent 45%),radial-gradient(circle at 4% 80%,rgba(255,203,71,.10),transparent 40%),var(--bg)}
-#app{max-width:780px;margin:0 auto;padding:16px 14px 32px;position:relative}
-h1{margin:4px 0 2px;text-align:center;font-size:2.2rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(90deg,#fff,#c9bcff 50%,#8fe9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{text-align:center;margin:0 0 14px;color:var(--mut);font-size:1rem}
+body{font-family:'Heebo',system-ui,Arial,sans-serif;color:var(--tx);background:var(--bg);min-height:100vh;overflow-x:hidden;position:relative;line-height:1.5;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px}
+body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;pointer-events:none;animation:drift 20s ease-in-out infinite alternate}
+body:before{width:70vmax;height:70vmax;top:-32vmax;right:-20vmax;background:radial-gradient(circle,rgba(112,72,255,.5),transparent 65%)}
+body:after{width:60vmax;height:60vmax;bottom:-28vmax;left:-18vmax;background:radial-gradient(circle,rgba(0,200,230,.35),transparent 65%);animation-delay:-10s}
+@keyframes drift{to{transform:translate(5vmax,4vmax) scale(1.12)}}
+#app{max-width:800px;margin:0 auto;padding:16px 14px 34px;position:relative}
+.top{display:flex;align-items:center;gap:14px;margin:4px 0 16px}
+.logo{flex:none;width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:1.7rem;color:#1a1200;background:linear-gradient(135deg,#ffe28a,var(--gold) 55%,#ff9f1c);box-shadow:0 8px 24px rgba(255,159,28,.45),inset 0 -3px 0 rgba(0,0,0,.15);transform:rotate(-6deg)}
+h1{margin:0;font-size:2rem;font-weight:800;letter-spacing:-.5px;line-height:1.1;background:linear-gradient(90deg,#fff,#cdbfff 55%,#8fe9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:3px 0 0;color:var(--mut);font-size:.95rem}
 .lnk{background:none;border:0;color:var(--acc2);text-decoration:underline;cursor:pointer;font:inherit;padding:0 4px}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.panel{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:26px;padding:18px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.1)}
 .hide{display:none!important}
-.btn{display:block;width:100%;min-height:58px;margin-top:12px;padding:12px;font-size:1.15rem;font-weight:700;color:#fff;text-align:center;text-decoration:none;cursor:pointer;background:linear-gradient(135deg,var(--acc),#4f8bff);border:0;border-radius:16px;box-shadow:0 8px 22px rgba(124,92,255,.45);touch-action:manipulation;transition:transform .08s,filter .2s}
-.btn:hover{filter:brightness(1.1)}.btn:active{transform:translateY(2px)}
-.btn:disabled{filter:grayscale(1) brightness(.6);cursor:default;box-shadow:none}
-.btn.sec{background:transparent;border:1.5px solid var(--line);box-shadow:none}
-.btn.fb{background:#1877f2;box-shadow:0 8px 22px rgba(24,119,242,.4)}
-.btn.wa{background:#1fa855;box-shadow:0 8px 22px rgba(31,168,85,.4)}
-.info{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700;margin-bottom:10px}
-.pz{background:rgba(255,203,71,.14);border:1px solid rgba(255,203,71,.6);border-radius:20px;padding:3px 14px;color:var(--gold);white-space:nowrap}
+.btn{display:block;width:100%;min-height:58px;margin-top:12px;padding:12px;font-size:1.15rem;font-weight:700;color:#fff;text-align:center;text-decoration:none;cursor:pointer;background:linear-gradient(135deg,var(--acc),#4f8bff 60%,var(--acc2));border:0;border-radius:18px;box-shadow:0 10px 26px rgba(124,92,255,.5);touch-action:manipulation;transition:transform .1s,filter .2s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:translateY(2px) scale(.99)}
+.btn:disabled{filter:grayscale(1) brightness(.55);cursor:default;box-shadow:none}
+.btn.sec{background:rgba(255,255,255,.05);border:1.5px solid var(--line);box-shadow:none}
+.btn.fb{background:#1877f2;box-shadow:0 10px 26px rgba(24,119,242,.4)}
+.btn.wa{background:#1fa855;box-shadow:0 10px 26px rgba(31,168,85,.4)}
+.hud{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ring{--p:24deg;position:relative;flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) var(--p),rgba(255,255,255,.12) 0);box-shadow:0 0 18px rgba(255,203,71,.25)}
+.ring:before{content:"";position:absolute;inset:6px;border-radius:50%;background:#0d1330}
+.ring span{position:relative;font-weight:800;font-size:1.25rem}
+.hl{display:flex;flex-direction:column;line-height:1.2}
+.hl small{color:var(--mut);font-size:.9rem}
+.pz{font-size:1.5rem;font-weight:800;background:linear-gradient(90deg,#ffe28a,#ffcb47,#ff9f1c,#ffe28a);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
 .dots{display:flex;gap:4px;justify-content:center;margin-bottom:12px}
 .dots i{flex:1;max-width:30px;height:6px;border-radius:4px;background:rgba(255,255,255,.14)}
 .dots i.safe{background:rgba(255,255,255,.32)}.dots i.done{background:var(--acc2)}.dots i.cur{background:var(--gold);box-shadow:0 0 10px var(--gold)}
 .play{display:grid;grid-template-columns:1fr;gap:14px}
-#ladder{display:none;list-style:none;margin:0;padding:10px;font-size:.88rem;align-self:start}
+#ladder{display:none;list-style:none;margin:0;padding:12px 10px;font-size:.88rem;align-self:start}
 #ladder li{display:flex;justify-content:space-between;gap:8px;padding:4px 10px;border-radius:10px;color:var(--mut)}
 #ladder li.safe{color:#fff;font-weight:700}#ladder li.done{color:var(--acc2)}
-#ladder li.cur{background:linear-gradient(135deg,var(--gold),#ff9f1c);color:#1a1200;font-weight:800}
-@media(min-width:720px){.play{grid-template-columns:1fr 170px}#ladder{display:block}.dots{display:none}}
+#ladder li.cur{background:linear-gradient(135deg,var(--gold),#ff9f1c);color:#1a1200;font-weight:800;box-shadow:0 0 16px rgba(255,203,71,.5)}
+@media(min-width:720px){.play{grid-template-columns:1fr 176px}#ladder{display:block}.dots{display:none}}
 .tag{display:inline-block;background:rgba(124,92,255,.22);border:1px solid rgba(124,92,255,.7);color:#d9d0ff;border-radius:20px;padding:2px 12px;font-size:.85rem;font-weight:700}
-.q{margin:12px 0 16px;padding:18px;font-size:1.35rem;font-weight:700;border-radius:18px;background:linear-gradient(135deg,rgba(124,92,255,.28),rgba(0,212,255,.12));border:1px solid var(--line);text-align:center;line-height:1.55}
-.ans{display:flex;align-items:center;gap:12px;width:100%;min-height:60px;margin:0 0 10px;padding:10px 14px;font-size:1.12rem;font-weight:500;text-align:right;color:var(--tx);cursor:pointer;background:rgba(255,255,255,.07);border:1.5px solid var(--line);border-radius:16px;transition:transform .08s,border-color .2s,background .2s;touch-action:manipulation}
-.ans:hover{border-color:var(--acc2);background:rgba(0,212,255,.1)}
-.ans b{flex:none;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:flex;align-items:center;justify-content:center}
-.ans.sel{border-color:var(--gold);background:rgba(255,203,71,.16);box-shadow:0 0 0 3px rgba(255,203,71,.25)}
+.q{margin:12px 0 16px;padding:22px 18px;font-size:clamp(1.2rem,4.2vw,1.55rem);font-weight:700;border-radius:22px;text-align:center;line-height:1.55;border:2px solid transparent;background:linear-gradient(#10163a,#10163a) padding-box,linear-gradient(135deg,var(--acc),var(--acc2),var(--gold)) border-box;box-shadow:0 0 34px rgba(124,92,255,.3);animation:in .4s both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+#answers{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:560px){#answers{grid-template-columns:1fr 1fr}}
+.ans{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;margin:0;padding:10px 14px;font-size:1.1rem;font-weight:500;text-align:right;color:var(--tx);cursor:pointer;background:rgba(255,255,255,.07);border:1.5px solid var(--line);border-radius:18px;transition:transform .12s,border-color .2s,background .2s,box-shadow .2s;touch-action:manipulation;animation:in .4s both}
+.ans:nth-child(2){animation-delay:.05s}.ans:nth-child(3){animation-delay:.1s}.ans:nth-child(4){animation-delay:.15s}
+.ans:hover{transform:translateY(-2px);border-color:var(--acc2);background:rgba(0,212,255,.1);box-shadow:0 8px 22px rgba(0,212,255,.2)}
+.ans b{flex:none;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:flex;align-items:center;justify-content:center}
+.ans.sel{border-color:var(--gold);background:rgba(255,203,71,.16);box-shadow:0 0 0 3px rgba(255,203,71,.3),0 8px 22px rgba(255,203,71,.2)}
 .ans.sel b{background:var(--gold);color:#1a1200}
-.ans.ok{background:linear-gradient(135deg,#19c37d,#0f9a60);border-color:#9affd2;box-shadow:0 0 26px rgba(25,195,125,.7);animation:pop .4s;color:#fff}
+.ans.ok{background:linear-gradient(135deg,#19c37d,#0f9a60);border-color:#9affd2;box-shadow:0 0 30px rgba(25,195,125,.75);animation:pop .45s;color:#fff}
 .ans.ok b{background:#fff;color:#0f9a60}
-.ans.bad{background:linear-gradient(135deg,#ff5470,#c4294a);border-color:#ffb3c1;color:#fff}
+.ans.bad{background:linear-gradient(135deg,#ff5470,#c4294a);border-color:#ffb3c1;color:#fff;animation:shake .5s}
 .ans.bad b{background:#fff;color:#c4294a}
 .ans.gone{opacity:.12;pointer-events:none}
-@keyframes pop{50%{transform:scale(1.03)}}
-.lifes{display:flex;gap:10px;justify-content:center;margin:14px 0 2px}
-.life{flex:1;max-width:140px;min-height:68px;border-radius:16px;border:1.5px solid var(--line);background:rgba(255,255,255,.06);color:var(--tx);font-size:.82rem;font-weight:500;cursor:pointer;padding:4px;font-family:inherit}
-.life i{display:block;font-size:1.5rem;font-style:normal}
-.life:disabled{opacity:.3;text-decoration:line-through;cursor:default}
-.help{margin-top:10px;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.3);border:1px dashed var(--acc2);font-size:.98rem}
+@keyframes pop{50%{transform:scale(1.04)}}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.lifes{display:flex;gap:10px;justify-content:center;margin:16px 0 2px}
+.life{flex:1;max-width:150px;min-height:70px;border-radius:18px;border:1.5px solid var(--line);background:rgba(255,255,255,.06);color:var(--tx);font-size:.82rem;font-weight:500;cursor:pointer;padding:4px;font-family:inherit;transition:transform .12s,border-color .2s}
+.life:hover:not(:disabled){transform:translateY(-2px);border-color:var(--gold)}
+.life i{display:block;font-size:1.55rem;font-style:normal}
+.life:disabled{opacity:.28;text-decoration:line-through;cursor:default}
+.help{margin-top:12px;padding:12px 14px;border-radius:16px;background:rgba(0,0,0,.3);border:1px dashed var(--acc2);font-size:.98rem}
 .bar{display:flex;align-items:center;gap:8px;margin:5px 0}.bar span{width:22px;font-weight:800}
 .bar div{height:16px;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
 .bar em{font-style:normal;font-size:.85rem;min-width:36px}
 .walk{background:none;border:0;color:var(--mut);text-decoration:underline;font:inherit;font-size:.88rem;margin-top:8px;cursor:pointer;width:100%;padding:8px}
-.end{text-align:center}.end .em{font-size:3.4rem}.end h2{margin:4px 0;font-size:1.7rem}
-.end .big{font-size:2.6rem;font-weight:800;color:var(--gold)}
+.end{text-align:center}.end .em{font-size:3.6rem}.end h2{margin:4px 0;font-size:1.8rem}
+.end .big{font-size:2.8rem;font-weight:800;color:var(--gold);text-shadow:0 0 24px rgba(255,203,71,.5)}
 .end p{color:#dfe5ff;margin:6px 0 10px}
-.cardimg{width:100%;max-width:340px;border:1px solid var(--line);border-radius:14px;margin:8px auto 0;display:block}
-.foot{margin-top:22px;text-align:center}
-.foot button{background:none;border:0;color:#7f8bb0;font:inherit;font-size:.82rem;text-decoration:underline;cursor:pointer;padding:6px 8px}
-.foot small{display:block;color:#68739a;font-size:.74rem;margin-top:4px}
-/* ===== אזורי פרסומת (מוסתרים כברירת מחדל) =====
-   שני אזורים, בצד ימין ובצד שמאל של המשחק, במסכים רחבים (מחשב) בלבד.
-   בטלפון הם מוסתרים תמיד, ובמקומם מופעלת מודעת עוגן אחת של גוגל (ראו ANCHOR_ADS בסקריפט).
-   אחרי אישור אדסנס: שנו display:none ל-display:block בכלל הבא (פעם אחת),
-   והדביקו בתוך כל אחד מה-div עם class="ad-inner" את קוד המודעה הרספונסיבית (data-ad-format="auto" ו-data-full-width-responsive="true"). */
-.ad-slot{display:none; /* <<< שנו ל-display:block אחרי אישור אדסנס */
-margin:10px 0;text-align:center;min-height:100px;overflow:hidden}
-@media(min-width:1100px){
-.ad-slot{position:absolute;top:0;width:160px;min-height:600px;margin:0}
-#adR{left:calc(100% + 14px)}#adL{right:calc(100% + 14px)}}
-@media(max-width:1099px){.ad-slot{display:none!important}}
-dialog{width:min(92vw,560px);max-height:86vh;padding:0;border:1px solid var(--line);border-radius:20px;background:#121a38;color:var(--tx);overflow:auto}
+.cardimg{width:100%;max-width:340px;border:1px solid var(--line);border-radius:16px;margin:8px auto 0;display:block}
+.cf{position:fixed;top:-16px;width:9px;height:14px;border-radius:2px;z-index:90;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(720deg)}}
+dialog{width:min(92vw,560px);max-height:86vh;padding:0;border:1px solid var(--line);border-radius:22px;background:#121a38;color:var(--tx);overflow:auto}
 dialog::backdrop{background:rgba(5,8,20,.8)}
 .dh{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#182248;border-bottom:1px solid var(--line)}
 .dh h2{margin:0;font-size:1.25rem}
@@ -98,17 +103,14 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
 </style>
 </head>
 <body>
+<script data-cfasync="false" src="https://bauval.org/14/29fe617bf835db6d99cd50f1e6f971b9"></script>
 <div id="app">
-  <h1>סולם הנוסטלגיה</h1>
-  <p class="sub">15 שאלות משנות ה-80 וה-90, שלושה עזרים, ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p>
+  <header class="top"><div class="logo">★</div><div><h1>סולם הנוסטלגיה</h1><p class="sub">15 שאלות משנות ה-80 וה-90 ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p></div></header>
 
-  <!-- פרסומת "ימין" (במחשב בלבד) - מוסתרת -->
-  <aside class="ad-slot" id="adR"><div class="ad-inner"></div></aside>
-  
   <main id="stage">
 
     <section id="play">
-      <div class="info"><span id="lv"></span><span class="pz" id="pz"></span></div>
+      <div class="hud"><div class="ring" id="ring"><span id="lvn">1</span></div><div class="hl"><small id="lv"></small><b class="pz" id="pz"></b></div></div>
       <div class="dots" id="dots"></div>
       <div class="play">
         <div class="panel">
@@ -140,62 +142,17 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
     </section>
   </main>
 
-  <!-- פרסומת "שמאל" (במחשב בלבד) - מוסתרת -->
-  <aside class="ad-slot" id="adL"><div class="ad-inner"></div></aside>
-  
-  <footer class="foot">
-    <button type="button" data-doc="how">איך משחקים</button>
-    <button type="button" data-doc="privacy">מדיניות פרטיות</button>
-    <button type="button" data-doc="terms">תנאי שימוש</button>
-    <button type="button" data-act="sharegame">שתפו את המשחק</button>
-    <small>משחק עצמאי למטרות בידור. אינו קשור לשום תוכנית טלוויזיה או מותג.</small>
-  </footer>
 </div>
 
 <div class="toast hide" id="toast"></div>
 <dialog id="dlg"><div class="dh"><h2 id="dt"></h2><button id="dx" type="button" aria-label="סגירה">✕</button></div><div class="db" id="db"></div></dialog>
 
-<script>
-/* ===== שאלות היום: מחליפים את הקובץ הזה בלבד, ולא נוגעים ב-index.html =====
-   בדיוק 15 שאלות, מהקלה לקשה. פורמט שורה: [קטגוריה, שאלה, תשובה נכונה, שגויה, שגויה, שגויה] */
-var DAILY = {
-  label: "2.11.2026",
-  questions: [
-    ["טלוויזיה וסדרות", "איזו חיה היא מיס פיגי, כוכבת ״החבובות״?", "חזירה", "ארנבת", "פרה", "ברווזה"],
-    ["מחשבים וטכנולוגיה", "איזה משחק קלפים הותקן ב-Windows 3.0 ב-1990 ושימש רבים להפסקות מהעבודה?", "סוליטר", "פוקר", "בריג’", "רמי"],
-    ["קולנוע", "מי גילם את ג’ון מקליין בסרט האקשן ״Die Hard״ (1988)?", "ברוס ויליס", "סילבסטר סטאלון", "ארנולד שוורצנגר", "מל גיבסון"],
-    ["מוזיקה", "מי ביצע את השיר ״Gangsta’s Paradise״ ב-1995?", "קוליו", "וניל אייס", "MC האמר", "סנופ דוג"],
-    ["היסטוריה ועולם", "מי נבחר ב-1994 לנשיא דרום אפריקה בבחירות הדמוקרטיות הראשונות במדינה?", "נלסון מנדלה", "דזמונד טוטו", "פ״ו בוטה", "פרדריק וילם דה קלרק"],
-    ["מחשבים וטכנולוגיה", "איזו חברה הציגה ב-1998 את מחשב ה-iMac הצבעוני?", "אפל", "IBM", "דל", "קומודור"],
-    ["מוזיקה", "באיזו שנה נערכו קונצרטי הצדקה ״לייב איד״ בלונדון ובפילדלפיה?", "1985", "1982", "1988", "1991"],
-    ["ספורט", "איזה שחקן הולנדי כבש שער וולה מפורסם בגמר אליפות אירופה בכדורגל 1988?", "מרקו ואן באסטן", "רוד חוליט", "פרנק רייקארד", "דניס ברגקמפ"],
-    ["ישראל", "באיזה מקום סיימה ליאורה עם השיר ״אמן״ באירוויזיון 1995 בדבלין?", "שמיני", "שלישי", "חמישי", "עשירי"],
-    ["ספורט", "איזו נבחרת זכתה באליפות אירופה בכדורגל 1992 אחרי שהוזמנה להשתתף ברגע האחרון?", "דנמרק", "גרמניה", "שוודיה", "הולנד"],
-    ["מדע", "באיזו שנה שוגר טלסקופ החלל האבל?", "1990", "1985", "1993", "1996"],
-    ["היסטוריה ועולם", "איזו ראש ממשלה בריטית התפטרה בנובמבר 1990 לאחר 11 שנים בתפקיד?", "מרגרט תאצ’ר", "ג’ון מייג’ור", "טוני בלייר", "אדוארד היית’"],
-    ["קולנוע", "איזה סרט זכה בפרס האוסקר לסרט הטוב ביותר בטקס שנערך במרץ 1994?", "רשימת שינדלר", "פארק היורה", "הפסנתר", "בשם האב"],
-    ["ספורט", "כמה מדליות זהב זכה קרל לואיס באולימפיאדת לוס אנג’לס 1984?", "ארבע", "שתיים", "שלוש", "חמש"],
-    ["מחשבים וטכנולוגיה", "באיזו שנה הוצגה לציבור שפת התכנות ג’אווה של חברת סאן?", "1995", "1991", "1993", "1998"]
-  ]
-};
-
-</script>
+<script src="questions.js"></script>
 <script>
 (function () {
   var CONTACT_EMAIL = "bgoren2014@gmail.com";   /* כתובת ליצירת קשר (מופיעה בדפי הפרטיות והתנאים) */
   var SITE = "nostalgiaquiz.github.io";
-  /* ===== פרסומת אחת בטלפון: מודעת עוגן (Anchor) של גוגל =====
-     זו תבנית הפרסום שגוגל עצמה מפעילה בתחתית המסך, נשארת גלויה בזמן הגלילה וכוללת כפתור סגירה,
-     ולכן היא עומדת במדיניות. אחרי אישור אדסנס: שנו ל-true, ובחשבון AdSense (מודעות ← סקירה ← עריכה לאתר)
-     הפעילו מודעות אוטומטיות עם פורמט ״מודעות עוגן״ בלבד, וכבו את שאר הפורמטים. */
-  var ANCHOR_ADS = false, ADSENSE_CLIENT = "ca-pub-4032258096506175";
-  if (ANCHOR_ADS && window.innerWidth < 1100) {
-    var sc = document.createElement("script");
-    sc.async = true; sc.crossOrigin = "anonymous";
-    sc.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADSENSE_CLIENT;
-    document.head.appendChild(sc);
-    document.body.style.paddingBottom = "110px";   /* מקום למודעה בתחתית, כדי שלא תכסה את הכפתורים */
-  }
+  var RELOAD_ON_REPLAY = true;   /* true: ״שחקו שוב״ טוענת את העמוד מחדש. זו צפייה חדשה אמיתית, ביוזמת הגולש */
   var PRIZES = [50, 100, 200, 400, 800, 1500, 3000, 6000, 12000, 25000, 50000, 100000, 200000, 500000, 1000000];
   var SAFE = [4, 9];        /* שלבים 5 ו-10 (אינדקס מ-0) */
   var $ = function (i) { return document.getElementById(i); };
@@ -280,6 +237,15 @@ var DAILY = {
   };
 
   /* ===== מבנה המסך ===== */
+  function confetti(n) {
+    var cols = ["#ffcb47", "#7c5cff", "#00d4ff", "#19c37d", "#ff5470"], i, e;
+    for (i = 0; i < n; i++) {
+      e = document.createElement("i"); e.className = "cf";
+      e.style.cssText = "left:" + Math.random() * 100 + "vw;background:" + cols[i % 5] + ";animation-delay:" + Math.random() * 0.6 + "s;animation-duration:" + (1.6 + Math.random() * 1.4) + "s";
+      document.body.appendChild(e);
+      setTimeout((function (x) { return function () { x.remove(); }; })(e), 3800);
+    }
+  }
   function shuffle(a) { var i, j, t; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function show(id) { ["play", "end"].forEach(function (s) { $(s).classList.toggle("hide", s !== id); }); }
   (function () {
@@ -305,6 +271,7 @@ var DAILY = {
     for (i = 2; i < 6; i++) o.push({ t: q[i], ok: i === 2 });
     st.opts = shuffle(o); st.sel = -1; st.gone = {}; st.locked = false;
     $("lv").textContent = "שאלה " + (st.lvl + 1) + " מתוך 15";
+    $("lvn").textContent = st.lvl + 1; $("ring").style.setProperty("--p", ((st.lvl + 1) / 15 * 360) + "deg");
     $("pz").textContent = fmt(PRIZES[st.lvl]) + " נקודות";
     $("tag").textContent = q[0]; $("qtext").textContent = q[1];
     $("help").classList.add("hide"); $("next").classList.add("hide");
@@ -339,7 +306,7 @@ var DAILY = {
     var kids = $("answers").children, ok = st.opts[st.sel].ok, i;
     for (i = 0; i < kids.length; i++) if (st.opts[i].ok) kids[i].classList.add("ok");
     if (ok) {
-      S.ok();
+      S.ok(); confetti(22);
       if (st.lvl === 14) { setTimeout(function () { end("win"); }, 2200); return; }
       $("lock").classList.add("hide"); $("next").classList.remove("hide");
     } else {
@@ -387,7 +354,7 @@ var DAILY = {
     if (kind === "win") pts = PRIZES[14];
     else if (kind === "walk") pts = lv > 0 ? PRIZES[lv - 1] : 0;
     else for (i = 0; i < SAFE.length; i++) if (SAFE[i] < lv) pts = PRIZES[SAFE[i]];
-    if (kind === "win") { em = "🏆"; t = "הגעתם לפסגה!"; tx = "מיליון נקודות. זיכרון של אלופים!"; S.win(); }
+    if (kind === "win") { em = "🏆"; t = "הגעתם לפסגה!"; tx = "מיליון נקודות. זיכרון של אלופים!"; S.win(); confetti(140); }
     else if (kind === "walk") { em = "🤝"; t = "פרשתם בזמן"; tx = "החלטה חכמה: לקחתם את הנקודות והמשכתם הלאה."; }
     else { em = "💥"; t = "המשחק נגמר"; tx = "טעיתם בשאלה " + (lv + 1) + ". הנקודות הבטוחות נשמרו אצלכם."; }
     $("eEm").textContent = em; $("eT").textContent = t; $("ePts").textContent = fmt(pts) + " נקודות"; $("eTx").textContent = tx;
@@ -446,7 +413,7 @@ var DAILY = {
       else { var a = document.createElement("a"); a.href = URL.createObjectURL(cardBlob); a.download = "nostalgia-ladder.png"; document.body.appendChild(a); a.click(); document.body.removeChild(a); }
     }
   });
-    $("again").onclick = function () { newGame(); window.scrollTo(0, 0); };
+    $("again").onclick = function () { if (RELOAD_ON_REPLAY) { location.reload(); return; } newGame(); window.scrollTo(0, 0); };
   function shareGame() {
     var url = location.origin + location.pathname, tx = "🎤 סולם הנוסטלגיה: 15 שאלות משנות ה-80 וה-90, שלושה עזרים ומיליון נקודות. כמה גבוה תעלו?";
     if (navigator.share) { navigator.share({ title: "סולם הנוסטלגיה", text: tx, url: url }).catch(function () {}); return; }
@@ -457,7 +424,7 @@ var DAILY = {
   var MAIL = CONTACT_EMAIL ? '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>' : "[יש להוסיף כתובת דוא״ל בקובץ index.html, בשורת CONTACT_EMAIL]";
   var DOCS = {
     how: ["איך משחקים", "<p>המטרה: לעלות בסולם של 15 שאלות נוסטלגיה משנות ה-80 וה-90, מהארץ ומהעולם, ולהגיע למיליון נקודות.</p><ol><li>לוחצים על תשובה, ואז על ״נעלו תשובה״. עד הנעילה אפשר להחליף.</li><li>תשובה נכונה מעלה אתכם שלב. תשובה שגויה מסיימת את המשחק.</li><li>שלבים 5 ו-10 הם תחנות בטוחות. אם טעיתם אחריהן, אתם שומרים את נקודות התחנה האחרונה שעברתם. אם טעיתם לפני התחנה הראשונה, מסיימים עם אפס.</li><li>בכל שלב, לפני נעילה, אפשר לפרוש ולקחת את הנקודות שצברתם עד כה.</li></ol><h3>שלושת העזרים (כל אחד פעם אחת)</h3><ul><li><b>הסרת שתי תשובות:</b> שתי תשובות שגויות נעלמות.</li><li><b>סקר הקהל:</b> הקהל מדומה על ידי המחשב. הוא נוטה לצדוק, אבל פחות ופחות ככל שהשאלות קשות יותר.</li><li><b>עזרת חבר:</b> חבר דמיוני (מחשב) נותן הצעה. גם הוא טועה לפעמים, במיוחד בשאלות הקשות.</li></ul><p>הנקודות וירטואליות בלבד ואין פרסים. שאלות חדשות מתווספות מדי פעם, אז כדאי לחזור.</p>"],
-    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 2 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר עשוי להציג פרסומות של Google AdSense. גוגל וספקים נוספים עשויים להשתמש בקובצי Cookie ובמזהים דומים כדי להציג ולמדוד פרסומות, כולל פרסומות מותאמות אישית. אפשר לנהל או לבטל התאמה אישית בהגדרות המודעות של גוגל (adssettings.google.com), ולקרוא עוד באתר policies.google.com/technologies/ads.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
+    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 2 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג פרסומות באמצעות רשת הפרסום Adsterra (תבנית Social Bar). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כמו כתובת IP, סוג מכשיר ודפדפן, כדי להציג ולמדוד פרסומות. פרטים נוספים במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר להגביל קובצי Cookie של צד שלישי בהגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
     terms: ["תנאי שימוש", "<p>עודכן לאחרונה: 2 בנובמבר 2026. השימוש באתר ״" + SITE + "״ מהווה הסכמה לתנאים הבאים.</p><h3>מהות האתר</h3><p>האתר הוא משחק טריוויה למטרות בידור בלבד. הנקודות וירטואליות, ואין בהן ערך כספי ואין פרסים.</p><h3>אי-שיוך</h3><p>האתר עצמאי ואינו קשור, מזוהה או מאושר על ידי שום תוכנית טלוויזיה, חברה או מותג. שמות ומותגים שמוזכרים בשאלות שייכים לבעליהם ומוזכרים לצורכי זיהוי והקשר היסטורי בלבד.</p><h3>דיוק התוכן</h3><p>אנחנו משתדלים לבדוק כל שאלה ותשובה, אך אין התחייבות לשלמות או לדיוק. התוכן ניתן כפי שהוא (AS IS). אם מצאתם טעות, נשמח שתכתבו לנו.</p><h3>קניין רוחני</h3><p>עיצוב האתר, הקוד, הצלילים והשאלות נוצרו עבור האתר ושייכים למפעיליו. אין להעתיק, למכור או להפיץ אותם ללא רשות. שיתוף קישור לאתר ושיתוף התוצאה שלכם מותרים ומבורכים.</p><h3>שימוש הוגן</h3><p>אסור לפגוע בפעולת האתר, לעקוף אותו באמצעים אוטומטיים או להשתמש בו לצורך הפרת חוק.</p><h3>פרסומות וקישורים</h3><p>האתר עשוי להציג פרסומות וקישורים לאתרים אחרים. איננו אחראים לתוכן שלהם.</p><h3>הגבלת אחריות</h3><p>השימוש באתר הוא באחריותכם בלבד. במידה המרבית המותרת בדין, המפעילים אינם אחראים לכל נזק הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו.</p><h3>שינויים ודין חל</h3><p>נוכל לעדכן את התנאים ואת האתר בכל עת. על התנאים יחולו דיני מדינת ישראל, וסמכות השיפוט בלעדית לבתי המשפט המוסמכים בישראל. ליצירת קשר: " + MAIL + ".</p>"]
   };
   var dlg = $("dlg");
@@ -473,6 +440,7 @@ var DAILY = {
   newGame();
 })();
 </script>
-<script data-cfasync="false" src="https://bauval.org/14/29fe617bf835db6d99cd50f1e6f971b9"></script>
+<!-- ===== Adsterra Social Bar =====
+     הדביקו כאן את קוד ה-Social Bar כפי שהוא מופיע בלוח הבקרה של Adsterra (תג script אחד). -->
 </body>
 </html>
