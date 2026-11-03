@@ -42,23 +42,17 @@ h1{margin:0;font-size:2rem;font-weight:800;letter-spacing:-.5px;line-height:1.1;
 .btn.sec{background:rgba(255,255,255,.05);border:1.5px solid var(--line);box-shadow:none}
 .btn.fb{background:#1877f2;box-shadow:0 10px 26px rgba(24,119,242,.4)}
 .btn.wa{background:#1fa855;box-shadow:0 10px 26px rgba(31,168,85,.4)}
-.hud{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.ring{--p:24deg;position:relative;flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) var(--p),rgba(255,255,255,.12) 0);box-shadow:0 0 18px rgba(255,203,71,.25)}
-.ring:before{content:"";position:absolute;inset:6px;border-radius:50%;background:#0d1330}
-.ring span{position:relative;font-weight:800;font-size:1.25rem}
-.hl{display:flex;flex-direction:column;line-height:1.2}
+.hud{display:flex;align-items:flex-end;gap:16px;margin-bottom:14px}
+.hl{display:flex;flex-direction:column;line-height:1.2;flex:none}
 .hl small{color:var(--mut);font-size:.9rem}
 .pz{font-size:1.5rem;font-weight:800;background:linear-gradient(90deg,#ffe28a,#ffcb47,#ff9f1c,#ffe28a);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3s linear infinite}
 @keyframes shine{to{background-position:-200% 0}}
-.dots{display:flex;gap:4px;justify-content:center;margin-bottom:12px}
-.dots i{flex:1;max-width:30px;height:6px;border-radius:4px;background:rgba(255,255,255,.14)}
-.dots i.safe{background:rgba(255,255,255,.32)}.dots i.done{background:var(--acc2)}.dots i.cur{background:var(--gold);box-shadow:0 0 10px var(--gold)}
 .play{display:grid;grid-template-columns:1fr;gap:14px}
 #ladder{display:none;list-style:none;margin:0;padding:12px 10px;font-size:.88rem;align-self:start}
 #ladder li{display:flex;justify-content:space-between;gap:8px;padding:4px 10px;border-radius:10px;color:var(--mut)}
 #ladder li.safe{color:#fff;font-weight:700}#ladder li.done{color:var(--acc2)}
 #ladder li.cur{background:linear-gradient(135deg,var(--gold),#ff9f1c);color:#1a1200;font-weight:800;box-shadow:0 0 16px rgba(255,203,71,.5)}
-@media(min-width:720px){.play{grid-template-columns:1fr 176px}#ladder{display:block}.dots{display:none}}
+@media(min-width:720px){.play{grid-template-columns:1fr 176px}#ladder{display:block}}
 .tag{display:inline-block;background:rgba(124,92,255,.22);border:1px solid rgba(124,92,255,.7);color:#d9d0ff;border-radius:20px;padding:2px 12px;font-size:.85rem;font-weight:700}
 .q{margin:12px 0 16px;padding:22px 18px;font-size:clamp(1.2rem,4.2vw,1.55rem);font-weight:700;border-radius:22px;text-align:center;line-height:1.55;border:2px solid transparent;background:linear-gradient(#10163a,#10163a) padding-box,linear-gradient(135deg,var(--acc),var(--acc2),var(--gold)) border-box;box-shadow:0 0 34px rgba(124,92,255,.3);animation:in .4s both}
 @keyframes in{from{opacity:0;transform:translateY(10px)}}
@@ -100,6 +94,25 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
 .dh button{background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;min-width:44px;min-height:44px}
 .db{padding:6px 18px 18px;font-size:1rem;line-height:1.75}.db h3{color:var(--acc2);margin:16px 0 4px}.db a{color:var(--acc2)}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#000;border:1px solid var(--line);color:#fff;padding:10px 18px;border-radius:12px;z-index:99;max-width:90%;text-align:center}
+.meter{flex:1;display:flex;align-items:flex-end;gap:3px;height:50px;min-width:0}
+.meter i{flex:1;border-radius:5px 5px 2px 2px;background:rgba(255,255,255,.13);position:relative;transition:background .3s,box-shadow .3s}
+.meter i.safe:after{content:"";position:absolute;top:-8px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#fff;opacity:.75}
+.meter i.done{background:linear-gradient(180deg,var(--acc2),var(--acc))}
+.meter i.cur{background:linear-gradient(180deg,#ffe28a,var(--gold) 55%,#ff9f1c);box-shadow:0 0 14px var(--gold);animation:bob 1.2s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-3px)}}
+.chat{margin:14px 0 4px;border:1px solid var(--line);border-radius:18px;background:rgba(0,0,0,.25);overflow:hidden}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 12px;background:rgba(255,255,255,.06);font-size:.88rem;font-weight:700}
+.ch .lnk{font-size:.78rem;font-weight:400;color:var(--mut)}
+.msgs{height:118px;overflow-y:auto;padding:8px 12px;font-size:.92rem;line-height:1.45}
+.msgs p{margin:0 0 4px;word-break:break-word}.msgs b{color:var(--acc2)}.msgs .me b{color:var(--gold)}
+.cin{display:flex;gap:6px;padding:6px;border-top:1px solid var(--line)}
+.cin input{min-width:0;font:inherit;font-size:16px;color:var(--tx);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+#cn{width:88px;flex:none}#ct{flex:1}
+.cin button{flex:none;border:0;border-radius:12px;padding:0 14px;font:inherit;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));cursor:pointer}
+.on{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:#bff5dc;white-space:nowrap}
+.on:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.demo{padding:4px 12px;font-size:.75rem;color:var(--gold);background:rgba(255,203,71,.08)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -107,7 +120,7 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
 
 
 <div id="app">
-  <header class="top"><div class="logo">★</div><div><h1>סולם הנוסטלגיה</h1><p class="sub">15 שאלות משנות ה-80 וה-90 ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p></div></header>
+  <header class="top"><div class="logo">★</div><div><h1>סולם הנוסטלגיה</h1><p class="sub">15 שאלות משנות ה-80 וה-90 ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p></div><span class="on hide" id="onl" style="margin-inline-start:auto"></span></header>
 
   
 
@@ -116,8 +129,7 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
 
     
     <section id="play">
-      <div class="hud"><div class="ring" id="ring"><span id="lvn">1</span></div><div class="hl"><small id="lv"></small><b class="pz" id="pz"></b></div></div>
-      <div class="dots" id="dots"></div>
+      <div class="hud"><div class="hl"><small id="lv"></small><b class="pz" id="pz"></b></div><div class="meter" id="dots" aria-hidden="true"></div></div>
       <div class="play">
         <div class="panel">
           <span class="tag" id="tag"></span>
@@ -128,7 +140,14 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
           
 
 
-          <div class="lifes" id="lifes" style="margin-top:12px">
+          <div class="chat hide" id="chat">
+            <div class="ch"><span>💬 צ’אט השחקנים</span><span class="on" id="onl2"></span><button class="lnk" type="button" data-doc="privacy">כללים ופרטיות</button></div>
+            <div class="demo hide" id="demo">מצב הדגמה: ההודעות מוצגות רק אצלך. החיבור לשחקנים אחרים מופעל אחרי הגדרת Firebase.</div>
+            <div class="msgs" id="msgs" aria-live="polite"></div>
+            <div class="cin"><input id="cn" maxlength="16" placeholder="כינוי" aria-label="כינוי"><input id="ct" maxlength="200" placeholder="כתבו הודעה…" aria-label="הודעה" autocomplete="off"><button id="cs" type="button">שלחו</button></div>
+          </div>
+          
+<div class="lifes" id="lifes" style="margin-top:12px">
             <button class="life" data-l="r" type="button"><i>✂️</i>הסרת שתי תשובות</button>
             <button class="life" data-l="a" type="button"><i>👥</i>סקר הקהל</button>
             <button class="life" data-l="f" type="button"><i>📞</i>עזרת חבר</button>
@@ -260,7 +279,7 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
   (function () {
     var h = "", d = "", i, sf;
     for (i = 14; i >= 0; i--) h += '<li id="L' + i + '" class="' + (SAFE.indexOf(i) > -1 ? "safe" : "") + '"><span>' + (i + 1) + '</span><b>' + fmt(PRIZES[i]) + '</b></li>';
-    for (i = 0; i < 15; i++) d += '<i id="D' + i + '"></i>';
+    for (i = 0; i < 15; i++) d += '<i id="D' + i + '" style="height:' + (10 + i * 2.8).toFixed(1) + 'px"></i>';
     $("ladder").innerHTML = h; $("dots").innerHTML = d;
   })();
   function paintLadder() {
@@ -280,7 +299,6 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
     for (i = 2; i < 6; i++) o.push({ t: q[i], ok: i === 2 });
     st.opts = shuffle(o); st.sel = -1; st.gone = {}; st.locked = false;
     $("lv").textContent = "שאלה " + (st.lvl + 1) + " מתוך 15";
-    $("lvn").textContent = st.lvl + 1; $("ring").style.setProperty("--p", ((st.lvl + 1) / 15 * 360) + "deg");
     $("pz").textContent = fmt(PRIZES[st.lvl]) + " נקודות";
     $("tag").textContent = q[0]; $("qtext").textContent = q[1];
     $("help").classList.add("hide"); $("next").classList.add("hide");
@@ -433,8 +451,8 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
   var MAIL = CONTACT_EMAIL ? '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>' : "[יש להוסיף כתובת דוא״ל בקובץ index.html, בשורת CONTACT_EMAIL]";
   var DOCS = {
     how: ["איך משחקים", "<p>המטרה: לעלות בסולם של 15 שאלות נוסטלגיה משנות ה-80 וה-90, מהארץ ומהעולם, ולהגיע למיליון נקודות.</p><ol><li>לוחצים על תשובה, ואז על ״נעלו תשובה״. עד הנעילה אפשר להחליף.</li><li>תשובה נכונה מעלה אתכם שלב. תשובה שגויה מסיימת את המשחק.</li><li>שלבים 5 ו-10 הם תחנות בטוחות. אם טעיתם אחריהן, אתם שומרים את נקודות התחנה האחרונה שעברתם. אם טעיתם לפני התחנה הראשונה, מסיימים עם אפס.</li><li>בכל שלב, לפני נעילה, אפשר לפרוש ולקחת את הנקודות שצברתם עד כה.</li></ol><h3>שלושת העזרים (כל אחד פעם אחת)</h3><ul><li><b>הסרת שתי תשובות:</b> שתי תשובות שגויות נעלמות.</li><li><b>סקר הקהל:</b> הקהל מדומה על ידי המחשב. הוא נוטה לצדוק, אבל פחות ופחות ככל שהשאלות קשות יותר.</li><li><b>עזרת חבר:</b> חבר דמיוני (מחשב) נותן הצעה. גם הוא טועה לפעמים, במיוחד בשאלות הקשות.</li></ul><p>הנקודות וירטואליות בלבד ואין פרסים. שאלות חדשות מתווספות מדי פעם, אז כדאי לחזור.</p>"],
-    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 2 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג פרסומות באמצעות רשת הפרסום Adsterra (תבנית Social Bar). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כמו כתובת IP, סוג מכשיר ודפדפן, כדי להציג ולמדוד פרסומות. פרטים נוספים במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר להגביל קובצי Cookie של צד שלישי בהגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
-    terms: ["תנאי שימוש", "<p>עודכן לאחרונה: 2 בנובמבר 2026. השימוש באתר ״" + SITE + "״ מהווה הסכמה לתנאים הבאים.</p><h3>מהות האתר</h3><p>האתר הוא משחק טריוויה למטרות בידור בלבד. הנקודות וירטואליות, ואין בהן ערך כספי ואין פרסים.</p><h3>אי-שיוך</h3><p>האתר עצמאי ואינו קשור, מזוהה או מאושר על ידי שום תוכנית טלוויזיה, חברה או מותג. שמות ומותגים שמוזכרים בשאלות שייכים לבעליהם ומוזכרים לצורכי זיהוי והקשר היסטורי בלבד.</p><h3>דיוק התוכן</h3><p>אנחנו משתדלים לבדוק כל שאלה ותשובה, אך אין התחייבות לשלמות או לדיוק. התוכן ניתן כפי שהוא (AS IS). אם מצאתם טעות, נשמח שתכתבו לנו.</p><h3>קניין רוחני</h3><p>עיצוב האתר, הקוד, הצלילים והשאלות נוצרו עבור האתר ושייכים למפעיליו. אין להעתיק, למכור או להפיץ אותם ללא רשות. שיתוף קישור לאתר ושיתוף התוצאה שלכם מותרים ומבורכים.</p><h3>שימוש הוגן</h3><p>אסור לפגוע בפעולת האתר, לעקוף אותו באמצעים אוטומטיים או להשתמש בו לצורך הפרת חוק.</p><h3>פרסומות וקישורים</h3><p>האתר עשוי להציג פרסומות וקישורים לאתרים אחרים. איננו אחראים לתוכן שלהם.</p><h3>הגבלת אחריות</h3><p>השימוש באתר הוא באחריותכם בלבד. במידה המרבית המותרת בדין, המפעילים אינם אחראים לכל נזק הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו.</p><h3>שינויים ודין חל</h3><p>נוכל לעדכן את התנאים ואת האתר בכל עת. על התנאים יחולו דיני מדינת ישראל, וסמכות השיפוט בלעדית לבתי המשפט המוסמכים בישראל. ליצירת קשר: " + MAIL + ".</p>"]
+    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 3 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו.</p><p>אם תשתתפו בצ’אט, הכינוי וההודעות שתכתבו פומביים, נראים לכל השחקנים ונשמרים בשרתי Firebase של גוגל. מונה השחקנים משתמש במזהה אקראי זמני שנמחק עם סגירת העמוד. אל תשתפו בצ’אט פרטים אישיים.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג פרסומות באמצעות רשת הפרסום Adsterra (תבנית Social Bar). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כמו כתובת IP, סוג מכשיר ודפדפן, כדי להציג ולמדוד פרסומות. פרטים נוספים במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר להגביל קובצי Cookie של צד שלישי בהגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
+    terms: ["תנאי שימוש", "<p>עודכן לאחרונה: 3 בנובמבר 2026. השימוש באתר ״" + SITE + "״ מהווה הסכמה לתנאים הבאים.</p><h3>מהות האתר</h3><p>האתר הוא משחק טריוויה למטרות בידור בלבד. הנקודות וירטואליות, ואין בהן ערך כספי ואין פרסים.</p><h3>אי-שיוך</h3><p>האתר עצמאי ואינו קשור, מזוהה או מאושר על ידי שום תוכנית טלוויזיה, חברה או מותג. שמות ומותגים שמוזכרים בשאלות שייכים לבעליהם ומוזכרים לצורכי זיהוי והקשר היסטורי בלבד.</p><h3>דיוק התוכן</h3><p>אנחנו משתדלים לבדוק כל שאלה ותשובה, אך אין התחייבות לשלמות או לדיוק. התוכן ניתן כפי שהוא (AS IS). אם מצאתם טעות, נשמח שתכתבו לנו.</p><h3>קניין רוחני</h3><p>עיצוב האתר, הקוד, הצלילים והשאלות נוצרו עבור האתר ושייכים למפעיליו. אין להעתיק, למכור או להפיץ אותם ללא רשות. שיתוף קישור לאתר ושיתוף התוצאה שלכם מותרים ומבורכים.</p><h3>שימוש הוגן</h3><p>אסור לפגוע בפעולת האתר, לעקוף אותו באמצעים אוטומטיים או להשתמש בו לצורך הפרת חוק.</p><h3>כללי הצ’אט</h3><p>אסור לכתוב גידופים, איומים, הטרדות, פרסומות, קישורים או פרטים אישיים. אנחנו רשאים למחוק הודעות ולחסום שימוש בצ’אט לפי שיקול דעתנו. התוכן בצ’אט הוא באחריות כותביו.</p><h3>פרסומות וקישורים</h3><p>האתר עשוי להציג פרסומות וקישורים לאתרים אחרים. איננו אחראים לתוכן שלהם.</p><h3>הגבלת אחריות</h3><p>השימוש באתר הוא באחריותכם בלבד. במידה המרבית המותרת בדין, המפעילים אינם אחראים לכל נזק הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו.</p><h3>שינויים ודין חל</h3><p>נוכל לעדכן את התנאים ואת האתר בכל עת. על התנאים יחולו דיני מדינת ישראל, וסמכות השיפוט בלעדית לבתי המשפט המוסמכים בישראל. ליצירת קשר: " + MAIL + ".</p>"]
   };
   var dlg = $("dlg");
   function openHtml(t, h) {
@@ -446,10 +464,69 @@ dialog::backdrop{background:rgba(5,8,20,.8)}
   document.addEventListener("pointerdown", function () { A(); if (st.opts && !st.locked && !st.over) bedStart(); });
   $("dx").onclick = function () { dlg.close ? dlg.close() : dlg.removeAttribute("open"); };
   dlg.addEventListener("click", function (e) { if (e.target === dlg) $("dx").onclick(); });
+
+  /* ===== צ’אט ומונה שחקנים בזמן אמת (Firebase Realtime Database) =====
+     כדי להפעיל: למלא את FIREBASE_CONFIG (הוראות בתשובה). כל עוד databaseURL ריק, הצ’אט והמונה מוסתרים. */
+  var CHAT_DEMO = false;    /* true רק בתצוגה מקדימה: צ’אט מקומי בלי שרת */
+  var FIREBASE_CONFIG = { apiKey: "", authDomain: "", databaseURL: "", projectId: "", appId: "" };
+  var BLOCK = ["זונה", "שרמוטה", "בן זונה", "מניאק", "כוס אמק", "חרא", "מזדיין", "מפגר"];   /* אפשר להרחיב */
+  var db = null, lastSend = 0, mine = {};
+  function setOnline(n, demo) {
+    var t = n + " אונליין" + (demo ? " (הדגמה)" : "");
+    $("onl").textContent = t; $("onl2").textContent = t;
+    $("onl").classList.remove("hide"); $("chat").classList.remove("hide");
+  }
+  function cleanMsg(t) {
+    t = String(t).replace(/\s+/g, " ").trim().slice(0, 200);
+    if (/https?:|www\.|\.(com|co|il|net|org|ru|xyz)\b|\d{7,}/i.test(t)) return "";
+    BLOCK.forEach(function (w) { t = t.split(w).join(new Array(w.length + 1).join("•")); });
+    return t;
+  }
+  function addMsg(n, t, me) {
+    var m = $("msgs"), p = document.createElement("p");
+    p.className = me ? "me" : "";
+    p.innerHTML = "<b>" + esc(n) + ":</b> " + esc(t);
+    m.appendChild(p);
+    while (m.children.length > 60) m.removeChild(m.firstChild);
+    m.scrollTop = m.scrollHeight;
+  }
+  function sendMsg() {
+    var name = $("cn").value.replace(/[<>&"]/g, "").trim().slice(0, 16) || ("שחקן" + (st.nick = st.nick || Math.floor(100 + Math.random() * 900)));
+    var text = cleanMsg($("ct").value), r;
+    if (!$("ct").value.trim()) return;
+    if (!text) { toast("קישורים, מספרי טלפון והודעות ריקות אינם מותרים בצ’אט."); return; }
+    if (Date.now() - lastSend < 2500) { toast("לאט יותר, אפשר לשלוח הודעה כל כמה שניות."); return; }
+    lastSend = Date.now(); $("ct").value = "";
+    if (db) {
+      r = db.ref("chat").push(); mine[r.key] = 1;
+      r.set({ n: name, t: text, ts: firebase.database.ServerValue.TIMESTAMP });
+    } else { addMsg(name, text, true); }
+  }
+  $("cs").onclick = sendMsg;
+  $("ct").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); sendMsg(); } });
+  function startChat() {
+    var id = Math.random().toString(36).slice(2, 12), me = db.ref("online/" + id);
+    db.ref(".info/connected").on("value", function (s) { if (s.val()) { me.onDisconnect().remove(); me.set(true); } });
+    db.ref("online").on("value", function (s) { setOnline(s.numChildren()); });
+    db.ref("chat").limitToLast(40).on("child_added", function (s) { var v = s.val() || {}; addMsg(v.n || "שחקן", v.t || "", !!mine[s.key]); });
+  }
+  function startDemo() {
+    var n = 9;
+    $("demo").classList.remove("hide"); setOnline(n, true);
+    addMsg("דנית", "איזה כיף לחזור לשנות ה-90!", false); addMsg("יוסי", "שאלה 7 הייתה קשה", false); addMsg("מיכל", "הגעתי ל-25,000 נקודות 😎", false);
+    setInterval(function () { n = Math.max(4, Math.min(16, n + Math.floor(Math.random() * 3) - 1)); setOnline(n, true); }, 4000);
+  }
+  if (FIREBASE_CONFIG.databaseURL) {
+    (function load(i) {
+      var urls = ["https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js", "https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"], sc;
+      if (i === urls.length) { try { firebase.initializeApp(FIREBASE_CONFIG); db = firebase.database(); startChat(); } catch (e) {} return; }
+      sc = document.createElement("script"); sc.src = urls[i]; sc.onload = function () { load(i + 1); }; document.head.appendChild(sc);
+    })(0);
+  } else if (CHAT_DEMO) { startDemo(); }
+
   newGame();
 })();
 </script>
-<!-- ===== Adsterra Social Bar =====
-    
+<!-- ===== מודעות: הדביקו כאן את קוד ההפעלה של המודעה (תג script). הספרייה aclib כבר נמצאת ב-head. ===== -->
 </body>
 </html>
