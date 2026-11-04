@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>סולם הנוסטלגיה | משחק טריוויה משנות ה-80 וה-90</title>
+<meta name="description" content="15 שאלות נוסטלגיה משנות ה-80 וה-90 מהארץ ומהעולם, שלושה עזרים ומיליון נקודות בסוף הסולם. כמה גבוה תעלו?">
+<link rel="canonical" href="https://nostalgiaquiz.github.io">
+<meta name="theme-color" content="#070b1f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="סולם הנוסטלגיה">
+<meta property="og:title" content="סולם הנוסטלגיה: 15 שאלות, שלושה עזרים, מיליון נקודות">
+<meta property="og:description" content="משחק טריוויה על שנות ה-80 וה-90 בארץ ובעולם. כמה גבוה תעלו בסולם?">
+<meta property="og:url" content="https://nostalgiaquiz.github.io/">
+<meta property="og:image" content="https://nostalgiaquiz.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b1f;--line:rgba(255,255,255,.14);--tx:#f5f7ff;--mut:#9aa6c8;--acc:#7c5cff;--acc2:#00d4ff;--gold:#ffcb47;--ok:#19c37d;--bad:#ff5470}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Heebo',system-ui,Arial,sans-serif;color:var(--tx);background:var(--bg);min-height:100vh;overflow-x:hidden;position:relative;line-height:1.5;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px}
+#app{max-width:800px;margin:0 auto;padding:16px 14px 34px;position:relative}
+.top{display:flex;align-items:center;gap:14px;margin:4px 0 16px}
+.logo{flex:none;width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:1.7rem;color:#1a1200;background:linear-gradient(135deg,#ffe28a,var(--gold) 55%,#ff9f1c);box-shadow:0 8px 24px rgba(255,159,28,.45),inset 0 -3px 0 rgba(0,0,0,.15);transform:rotate(-6deg)}
+h1{margin:0;font-size:2rem;font-weight:800;letter-spacing:-.5px;line-height:1.1;background:linear-gradient(90deg,#fff,#cdbfff 55%,#8fe9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:3px 0 0;color:var(--mut);font-size:.95rem}
+.lnk{background:none;border:0;color:var(--acc2);text-decoration:underline;cursor:pointer;font:inherit;padding:0 4px}
+.panel{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:26px;padding:18px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.1)}
+.hide{display:none!important}
+.btn{display:block;width:100%;min-height:58px;margin-top:12px;padding:12px;font-size:1.15rem;font-weight:700;color:#fff;text-align:center;text-decoration:none;cursor:pointer;background:linear-gradient(135deg,var(--acc),#4f8bff 60%,var(--acc2));border:0;border-radius:18px;box-shadow:0 10px 26px rgba(124,92,255,.5);touch-action:manipulation;transition:transform .1s,filter .2s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:translateY(2px) scale(.99)}
+.btn:disabled{filter:grayscale(1) brightness(.55);cursor:default;box-shadow:none}
+.btn.sec{background:rgba(255,255,255,.05);border:1.5px solid var(--line);box-shadow:none}
+.btn.fb{background:#1877f2;box-shadow:0 10px 26px rgba(24,119,242,.4)}
+.btn.wa{background:#1fa855;box-shadow:0 10px 26px rgba(31,168,85,.4)}
+.hud{display:flex;align-items:flex-end;gap:16px;margin-bottom:14px}
+.hl{display:flex;flex-direction:column;line-height:1.2;flex:none}
+.hl small{color:var(--mut);font-size:.9rem}
+.pz{font-size:1.5rem;font-weight:800;background:linear-gradient(90deg,#ffe28a,#ffcb47,#ff9f1c,#ffe28a);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.play{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.tag{display:inline-block;background:rgba(124,92,255,.22);border:1px solid rgba(124,92,255,.7);color:#d9d0ff;border-radius:20px;padding:2px 12px;font-size:.85rem;font-weight:700}
+.q{margin:12px 0 16px;padding:22px 18px;font-size:clamp(1.2rem,4.2vw,1.55rem);font-weight:700;border-radius:22px;text-align:center;line-height:1.55;border:2px solid transparent;background:linear-gradient(#10163a,#10163a) padding-box,linear-gradient(135deg,var(--acc),var(--acc2),var(--gold)) border-box;box-shadow:0 0 34px rgba(124,92,255,.3);animation:in .4s both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+#answers{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:560px){#answers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ans{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;margin:0;padding:10px 14px;font-size:1.1rem;font-weight:500;text-align:right;color:var(--tx);cursor:pointer;background:rgba(255,255,255,.07);border:1.5px solid var(--line);border-radius:18px;transition:transform .12s,border-color .2s,background .2s,box-shadow .2s;touch-action:manipulation;animation:in .4s both}
+.ans:nth-child(2){animation-delay:.05s}.ans:nth-child(3){animation-delay:.1s}.ans:nth-child(4){animation-delay:.15s}
+.ans:hover{transform:translateY(-2px);border-color:var(--acc2);background:rgba(0,212,255,.1);box-shadow:0 8px 22px rgba(0,212,255,.2)}
+.ans b{flex:none;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:flex;align-items:center;justify-content:center}
+.ans.sel{border-color:var(--gold);background:rgba(255,203,71,.16);box-shadow:0 0 0 3px rgba(255,203,71,.3),0 8px 22px rgba(255,203,71,.2)}
+.ans.sel b{background:var(--gold);color:#1a1200}
+.ans.ok{background:linear-gradient(135deg,#19c37d,#0f9a60);border-color:#9affd2;box-shadow:0 0 30px rgba(25,195,125,.75);animation:pop .45s;color:#fff}
+.ans.ok b{background:#fff;color:#0f9a60}
+.ans.bad{background:linear-gradient(135deg,#ff5470,#c4294a);border-color:#ffb3c1;color:#fff;animation:shake .5s}
+.ans.bad b{background:#fff;color:#c4294a}
+.ans.gone{opacity:.12;pointer-events:none}
+@keyframes pop{50%{transform:scale(1.04)}}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.lifes{display:flex;gap:10px;justify-content:center;margin:16px 0 2px}
+.life{flex:1;max-width:150px;min-height:70px;border-radius:18px;border:1.5px solid var(--line);background:rgba(255,255,255,.06);color:var(--tx);font-size:.82rem;font-weight:500;cursor:pointer;padding:4px;font-family:inherit;transition:transform .12s,border-color .2s}
+.life:hover:not(:disabled){transform:translateY(-2px);border-color:var(--gold)}
+.life i{display:block;font-size:1.55rem;font-style:normal}
+.life:disabled{opacity:.28;text-decoration:line-through;cursor:default}
+.help{margin-top:12px;padding:12px 14px;border-radius:16px;background:rgba(0,0,0,.3);border:1px dashed var(--acc2);font-size:.98rem}
+.bar{display:flex;align-items:center;gap:8px;margin:5px 0}.bar span{width:22px;font-weight:800}
+.bar div{height:16px;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.bar em{font-style:normal;font-size:.85rem;min-width:36px}
+.walk{background:none;border:0;color:var(--mut);text-decoration:underline;font:inherit;font-size:.88rem;margin-top:8px;cursor:pointer;width:100%;padding:8px}
+.end{text-align:center}.end .em{font-size:3.6rem}.end h2{margin:4px 0;font-size:1.8rem}
+.end .big{font-size:2.8rem;font-weight:800;color:var(--gold);text-shadow:0 0 24px rgba(255,203,71,.5)}
+.end p{color:#dfe5ff;margin:6px 0 10px}
+.cardimg{width:100%;max-width:340px;border:1px solid var(--line);border-radius:16px;margin:8px auto 0;display:block}
+.cf{position:fixed;top:-16px;width:9px;height:14px;border-radius:2px;z-index:90;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(720deg)}}
+dialog{width:min(92vw,560px);max-height:86vh;padding:0;border:1px solid var(--line);border-radius:22px;background:#121a38;color:var(--tx);overflow:auto}
+dialog::backdrop{background:rgba(5,8,20,.8)}
+.dh{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#182248;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font-size:1.25rem}
+.dh button{background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;min-width:44px;min-height:44px}
+.db{padding:6px 18px 18px;font-size:1rem;line-height:1.75}.db h3{color:var(--acc2);margin:16px 0 4px}.db a{color:var(--acc2)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#000;border:1px solid var(--line);color:#fff;padding:10px 18px;border-radius:12px;z-index:99;max-width:90%;text-align:center}
+.meter{flex:1;display:flex;align-items:flex-end;gap:3px;height:50px;min-width:0}
+.meter i{flex:1;border-radius:5px 5px 2px 2px;background:rgba(255,255,255,.13);position:relative;transition:background .3s,box-shadow .3s}
+.meter i.safe:after{content:"";position:absolute;top:-8px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#fff;opacity:.75}
+.meter i.done{background:linear-gradient(180deg,var(--acc2),var(--acc))}
+.meter i.cur{background:linear-gradient(180deg,#ffe28a,var(--gold) 55%,#ff9f1c);box-shadow:0 0 14px var(--gold);animation:bob 1.2s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-3px)}}
+.chat{margin:14px 0 4px;border:1px solid var(--line);border-radius:18px;background:rgba(0,0,0,.25);overflow:hidden}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 12px;background:rgba(255,255,255,.06);font-size:.88rem;font-weight:700}
+.ch .lnk{font-size:.78rem;font-weight:400;color:var(--mut)}
+.msgs{height:118px;overflow-y:auto;padding:8px 12px;font-size:.92rem;line-height:1.45}
+.msgs p{margin:0 0 4px;word-break:break-word}.msgs b{color:var(--acc2)}.msgs .me b{color:var(--gold)}
+.cin{display:flex;gap:6px;padding:6px;border-top:1px solid var(--line)}
+.cin input{min-width:0;font:inherit;font-size:16px;color:var(--tx);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+#cn{width:88px;flex:none}#ct{flex:1}
+.cin button{flex:none;border:0;border-radius:12px;padding:0 14px;font:inherit;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));cursor:pointer}
+.on{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:#bff5dc;white-space:nowrap}
+.on:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+.demo{padding:4px 12px;font-size:.75rem;color:var(--gold);background:rgba(255,203,71,.08)}
+.mwrap{flex:1;min-width:0}
+.mlab{display:flex;gap:3px;margin-top:6px;height:14px}
+.mlab div{flex:1;position:relative}
+.mlab span{position:absolute;top:0;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.68rem;font-weight:500;color:var(--mut)}
+.mlab .sf span{color:var(--gold);font-weight:700}
+.ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px;border:2px dashed rgba(255,255,255,.35);border-radius:10px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 12px,rgba(255,255,255,.09) 12px 24px);color:var(--mut);font-weight:700;font-size:.95rem;text-align:center;line-height:1.3}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-wrap:anywhere;min-height:100vh;min-height:100dvh}
+#app{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right));padding-bottom:max(34px,env(safe-area-inset-bottom))}
+.top{flex-wrap:wrap}.top>div:nth-of-type(2){flex:1;min-width:0}
+.ch{flex-wrap:wrap}
+@media(max-width:560px){
+.top{gap:10px;margin-bottom:12px}.logo{width:44px;height:44px;font-size:1.4rem;border-radius:14px}
+h1{font-size:1.6rem}.sub{font-size:.85rem}
+#onl{flex-basis:100%;margin-inline-start:0!important}
+.panel{padding:14px;border-radius:22px}
+.hud{flex-direction:column;align-items:stretch;gap:10px}
+.hl{flex-direction:row;justify-content:space-between;align-items:baseline}
+.meter{height:56px}
+.q{padding:16px 12px;margin:10px 0 12px}
+.ans{min-height:56px;padding:8px 12px;font-size:1.05rem}.ans b{width:34px;height:34px}
+.lifes{gap:6px}.life{min-height:64px;font-size:.74rem}.life i{font-size:1.3rem}
+.msgs{height:104px}.btn{min-height:54px}
+dialog{width:94vw;max-height:88vh}}
+@media(max-width:380px){h1{font-size:1.4rem}.pz{font-size:1.25rem}.ch .lnk{display:none}}
+body:before,body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;animation:pulse 14s ease-in-out infinite alternate}
+body:before{background:radial-gradient(60vmax 60vmax at 92% -8%,rgba(112,72,255,.5),transparent 65%),radial-gradient(45vmax 45vmax at 4% 82%,rgba(255,203,71,.1),transparent 65%)}
+body:after{background:radial-gradient(55vmax 55vmax at 6% 106%,rgba(0,200,230,.34),transparent 65%);animation-delay:-7s}
+@keyframes pulse{from{opacity:.55}to{opacity:1}}
+html{overflow-x:hidden}
+#stage{position:relative}
+.slot{position:relative;width:100%;max-width:100%;margin:0 auto 14px;overflow:hidden}
+.slot-in{position:absolute;top:0;left:50%;min-width:100%;width:max-content;transform:translateX(-50%);transform-origin:50% 0;text-align:center}
+.slot-in>*{margin-left:auto;margin-right:auto}
+.side{display:none}
+@media(min-width:1080px){
+.side{display:block;position:absolute;top:0;bottom:0;width:120px}
+#adSideR{left:calc(100% + 12px)}#adSideL{right:calc(100% + 12px)}
+.side .ad-inner{position:sticky;top:12px;width:120px;height:600px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div id="app">
+  <header class="top"><div class="logo">★</div><div><h1>סולם הנוסטלגיה</h1><p class="sub">15 שאלות משנות ה-80 וה-90 ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p></div><span class="on hide" id="onl" style="margin-inline-start:auto"></span></header>
+
+  <!-- באנר אופקי (מתחת לכותרת). כדי להפעיל מודעה אמיתית: מוחקים את ה-div עם class="ph" ומדביקים במקומו את קוד המודעה, בתוך slot-in. כל גודל באנר יותאם אוטומטית לרוחב המסך -->
+  <div class="slot" id="adTop"><div class="slot-in ad-inner"><div class="ph" style="width:728px;height:90px">
+    <script type="text/javascript">
+        aclib.runBanner({
+            zoneId: '12404858',
+        });
+    </script></div></div></div>
+
+  
+
+  <main id="stage">
+
+
+    
+    <section id="play">
+      <div class="hud"><div class="hl"><small id="lv"></small><b class="pz" id="pz"></b></div><div class="mwrap" aria-hidden="true"><div class="meter" id="dots"></div><div class="mlab" id="mlab"></div></div></div>
+      <div class="play">
+        <div class="panel">
+          <span class="tag" id="tag"></span>
+          <div class="q" id="qtext"></div>
+          <div id="answers"></div>
+          <button class="btn" id="lock" type="button" disabled>נעלו תשובה 🔒</button>
+          <button class="btn hide" id="next" type="button">לשאלה הבאה 👈</button>
+          
+
+
+          <!-- באנר אופקי מעל הצ’אט (אותה הוראה: מחליפים את ה-div עם class="ph" בקוד המודעה) -->
+          <div class="slot" id="adChat"><div class="slot-in ad-inner"><div class="ph" style="width:728px;height:90px">
+    <script type="text/javascript">
+        aclib.runBanner({
+            zoneId: '12404866',
+        });
+    </script></div></div></div>
+
+          <div class="chat hide" id="chat">
+            <div class="ch"><span>💬 צ’אט השחקנים</span><span class="on" id="onl2"></span><button class="lnk" type="button" data-doc="privacy">כללים ופרטיות</button></div>
+            <div class="demo hide" id="demo">מצב הדגמה: ההודעות מוצגות רק אצלך. החיבור לשחקנים אחרים מופעל אחרי הגדרת Firebase.</div>
+            <div class="msgs" id="msgs" aria-live="polite"></div>
+            <div class="cin"><input id="cn" maxlength="16" placeholder="כינוי" aria-label="כינוי"><input id="ct" maxlength="200" placeholder="כתבו הודעה…" aria-label="הודעה" autocomplete="off"><button id="cs" type="button">שלחו</button></div>
+          </div>
+          
+<div class="lifes" id="lifes" style="margin-top:12px">
+            <button class="life" data-l="r" type="button"><i>✂️</i>הסרת שתי תשובות</button>
+            <button class="life" data-l="a" type="button"><i>👥</i>סקר הקהל</button>
+            <button class="life" data-l="f" type="button"><i>📞</i>עזרת חבר</button>
+          </div>
+          <div class="help hide" id="help"></div>
+          <button class="walk" id="walk" type="button"></button>
+        </div>
+      </div>
+    </section>
+    
+    <section class="panel end hide" id="end">
+      <div class="em" id="eEm"></div>
+      <h2 id="eT"></h2>
+      <div class="big" id="ePts"></div>
+      <p id="eTx"></p>
+      <img class="cardimg hide" id="cardImg" alt="כרטיס התוצאה שלי">
+      <div id="eShare"></div>
+      <button class="btn sec" id="again" type="button">שחקו שוב 🔁</button>
+    </section>
+    <!-- באנרים 120x600 בצדדי המשחק: מתחילים בגובה אזור המשחק וצפים בגלילה (מחשב בלבד, מסך ברוחב 1080 פיקסלים ומעלה) -->
+    <aside class="side" id="adSideR"><div class="ad-inner"><div class="ph">
+    <script type="text/javascript">
+        aclib.runBanner({
+            zoneId: '12404874',
+        });
+    </script></div></div></aside>
+
+    <aside class="side" id="adSideL"><div class="ad-inner"><div class="ph">
+    <script type="text/javascript">
+        aclib.runBanner({
+            zoneId: '12404882',
+        });
+    </script></div></div></aside>
+  </main>
+
+</div>
+
+<div class="toast hide" id="toast"></div>
+<dialog id="dlg"><div class="dh"><h2 id="dt"></h2><button id="dx" type="button" aria-label="סגירה">✕</button></div><div class="db" id="db"></div></dialog>
+
+<script src="questions.js"></script>
+<script>
+(function () {
+  var CONTACT_EMAIL = "bgoren2014@gmail.com";   /* כתובת ליצירת קשר (מופיעה בדפי הפרטיות והתנאים) */
+  var SITE = "nostalgiaquiz.github.io";
+  var RELOAD_ON_REPLAY = true;   /* true: ״שחקו שוב״ טוענת את העמוד מחדש. זו צפייה חדשה אמיתית, ביוזמת הגולש */
+  var PRIZES = [50, 100, 200, 400, 800, 1500, 3000, 6000, 12000, 25000, 50000, 100000, 200000, 500000, 1000000];
+  var SAFE = [4, 9];        /* שלבים 5 ו-10 (אינדקס מ-0) */
+  var $ = function (i) { return document.getElementById(i); };
+  var fmt = function (n) { return n.toLocaleString("he-IL"); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  if (typeof DAILY === "undefined" || !DAILY.questions || DAILY.questions.length < 15) {
+    $("stage").innerHTML = '<p class="panel" style="text-align:center;font-weight:700">לא הצלחנו לטעון את שאלות המשחק. נסו לרענן את העמוד.</p>';
+    return;
+  }
+  var st = {}, ac = null, master = null, noiseBuf = null, curText = "", cardBlob = null;
+
+  /* ===== צלילים מקוריים (Web Audio), בלי קבצי שמע ובלי מנגינות מוכרות ===== */
+  function A() {
+    if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); master = ac.createDynamicsCompressor(); master.connect(ac.destination); } catch (e) { ac = null; } }
+    if (ac && ac.state === "suspended") ac.resume();
+    return ac;
+  }
+  function T(f, d, v, type, w, f2, lp) {
+    var a = A(); if (!a) return;
+    var t = a.currentTime + (w || 0), o = a.createOscillator(), g = a.createGain(), fl;
+    o.type = type || "sine"; o.frequency.setValueAtTime(f, t);
+    if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + d);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g);
+    if (lp) { fl = a.createBiquadFilter(); fl.type = "lowpass"; fl.frequency.value = lp; g.connect(fl); fl.connect(master); } else { g.connect(master); }
+    o.start(t); o.stop(t + d + 0.03);
+  }
+  function N(d, v, f1, f2, w, at) {
+    var a = A(); if (!a) return;
+    var t = a.currentTime + (w || 0), s, fl, g, dt, i;
+    if (!noiseBuf) { noiseBuf = a.createBuffer(1, a.sampleRate * 2, a.sampleRate); dt = noiseBuf.getChannelData(0); for (i = 0; i < dt.length; i++) dt[i] = Math.random() * 2 - 1; }
+    s = a.createBufferSource(); fl = a.createBiquadFilter(); g = a.createGain();
+    s.buffer = noiseBuf; s.loop = true; fl.type = "bandpass"; fl.Q.value = 1.2;
+    fl.frequency.setValueAtTime(f1, t); fl.frequency.exponentialRampToValueAtTime(f2, t + d);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + (at || d * 0.9)); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    s.connect(fl); fl.connect(g); g.connect(master); s.start(t); s.stop(t + d + 0.05);
+  }
+  var TENSION_BED = true;   /* true = דרון מתח שקט בזמן החשיבה על שאלה. false = בלי */
+  var bedT = null;
+  function bedBeat() {
+    if (!ac || st.locked || st.over) return;
+    T(55, 0.5, 0.14, "sine", 0, 40);
+    T(110, 2.2, 0.03, "sawtooth", 0, 0, 260);
+    T(116.5, 2.2, 0.022, "sawtooth", 0, 0, 240);
+  }
+  function bedStart() { if (!TENSION_BED || bedT || !ac) return; bedBeat(); bedT = setInterval(bedBeat, 1300); }
+  function bedStop() { clearInterval(bedT); bedT = null; }
+  function applause(d) { var i; for (i = 0; i < d * 36; i++) N(0.05 + Math.random() * 0.05, 0.07, 1600 + Math.random() * 1800, 2600, Math.random() * d, 0.005); }
+  var S = {
+    sel: function () { T(520, 0.07, 0.12, "triangle"); },
+    qin: function () { N(0.6, 0.12, 200, 2500, 0, 0.5); T(90, 0.4, 0.25, "sine", 0, 50); },
+    lock: function () {                       /* נעילה: מכה כבדה, עלייה מתוחה ודפיקות לב */
+      var i; T(85, 1, 0.7, "sine", 0, 32); N(0.35, 0.3, 3000, 300, 0, 0.01);
+      T(220, 1.8, 0.05, "triangle", 0, 900, 1400);
+      for (i = 0; i < 5; i++) T(70, 0.22, 0.3, "sine", 0.35 + i * 0.3, 44);
+    },
+    ok: function () {                         /* נכון: אקורד ניצחון בוהק, נצנוץ ומצלתיים */
+      [261.63, 329.63, 392, 523.25].forEach(function (f) { T(f, 1.1, 0.12, "sawtooth", 0, 0, 2600); T(f * 2, 0.9, 0.05, "triangle", 0); });
+      T(65, 0.8, 0.5, "sine", 0, 40);
+      [1046.5, 1318.5, 1568, 2093].forEach(function (f, i) { T(f, 0.3, 0.07, "sine", 0.12 + i * 0.07); });
+      N(0.9, 0.12, 6000, 9000, 0, 0.02);
+    },
+    bad: function () {                        /* שגוי: נפילה נמוכה ושאגה */
+      T(260, 1.5, 0.3, "sawtooth", 0, 48, 700); T(130, 1.5, 0.25, "square", 0, 32, 500);
+      T(60, 1.2, 0.7, "sine", 0, 28); N(1, 0.18, 500, 80, 0, 0.02);
+    },
+    life: function (k) {
+      var j;
+      if (k === "r") {                        /* הסרת שתי תשובות: שני "דינגים" יורדים */
+        T(1320, 0.12, 0.14, "square", 0, 0, 3500); T(990, 0.12, 0.14, "square", 0.14, 0, 3500); T(660, 0.4, 0.16, "square", 0.28, 0, 3500); T(1320, 0.4, 0.05, "sine", 0, 880);
+      } else if (k === "f") {                 /* עזרת חבר: צלצול טלפון */
+        for (j = 0; j < 2; j++) { T(440, 0.4, 0.12, "sine", j * 0.9); T(480, 0.4, 0.12, "sine", j * 0.9); }
+      } else {                                /* סקר הקהל: תופים ומצלתיים */
+        for (j = 0; j < 14; j++) N(0.08, 0.1 + j * 0.01, 200, 500, j * 0.07, 0.005);
+        N(0.9, 0.15, 5000, 9000, 1, 0.02); applause(1.4);
+      }
+    },
+    win: function () {
+      [392, 392, 523.25, 659.25, 783.99, 659.25, 783.99, 1046.5].forEach(function (f, i) { T(f, 0.5, 0.16, "sawtooth", i * 0.22, 0, 2400); T(f / 2, 0.5, 0.1, "sine", i * 0.22); });
+      N(1.4, 0.14, 4000, 9000, 1.7, 0.05); applause(4);
+    }
+  };
+
+  /* ===== מבנה המסך ===== */
+  function confetti(n) {
+    var cols = ["#ffcb47", "#7c5cff", "#00d4ff", "#19c37d", "#ff5470"], i, e;
+    for (i = 0; i < n; i++) {
+      e = document.createElement("i"); e.className = "cf";
+      e.style.cssText = "left:" + Math.random() * 100 + "vw;background:" + cols[i % 5] + ";animation-delay:" + Math.random() * 0.6 + "s;animation-duration:" + (1.6 + Math.random() * 1.4) + "s";
+      document.body.appendChild(e);
+      setTimeout((function (x) { return function () { x.remove(); }; })(e), 3800);
+    }
+  }
+  function shuffle(a) { var i, j, t; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function show(id) { ["play", "end"].forEach(function (s) { $(s).classList.toggle("hide", s !== id); }); }
+  (function () {
+    var d = "", m = "", i, key = [0, 4, 9, 14];
+    for (i = 0; i < 15; i++) {
+      d += '<i id="D' + i + '" style="height:' + (20 + i * 5.7).toFixed(1) + '%"></i>';
+      m += '<div class="' + (SAFE.indexOf(i) > -1 ? "sf" : "") + '">' + (key.indexOf(i) > -1 ? "<span>" + fmt(PRIZES[i]) + "</span>" : "") + "</div>";
+    }
+    $("dots").innerHTML = d; $("mlab").innerHTML = m;
+  })();
+  function paintLadder() {
+    var i, s;
+    for (i = 0; i < 15; i++) {
+      s = i < st.lvl ? "done" : (i === st.lvl ? "cur" : "");
+      $("D" + i).className = (SAFE.indexOf(i) > -1 ? "safe " : "") + s;
+    }
+  }
+  function newGame() {
+    st = { lvl: 0, used: {}, locked: false };
+    show("play"); loadQ();
+  }
+  function loadQ() {
+    var q = DAILY.questions[st.lvl], i, o = [];
+    for (i = 2; i < 6; i++) o.push({ t: q[i], ok: i === 2 });
+    st.opts = shuffle(o); st.sel = -1; st.gone = {}; st.locked = false;
+    $("lv").textContent = "שאלה " + (st.lvl + 1) + " מתוך 15";
+    $("pz").textContent = fmt(PRIZES[st.lvl]) + " נקודות";
+    $("tag").textContent = q[0]; $("qtext").textContent = q[1];
+    $("help").classList.add("hide"); $("next").classList.add("hide");
+    $("lock").classList.remove("hide"); $("lock").disabled = true;
+    $("walk").textContent = st.lvl > 0 ? "פרשו עם " + fmt(PRIZES[st.lvl - 1]) + " נקודות" : "";
+    $("walk").classList.toggle("hide", st.lvl === 0);
+    drawAns(); drawLifes(); paintLadder();
+    if (ac) { if (st.lvl > 0) S.qin(); bedStart(); }
+  }
+  function drawAns() {
+    var h = "";
+    st.opts.forEach(function (o, i) {
+      h += '<button type="button" class="ans' + (st.sel === i ? " sel" : "") + (st.gone[i] ? " gone" : "") + '" data-i="' + i + '"><b>' + "אבגד".charAt(i) + '</b><span>' + esc(o.t) + '</span></button>';
+    });
+    $("answers").innerHTML = h;
+  }
+  function drawLifes() {
+    Array.prototype.forEach.call($("lifes").children, function (b) { b.disabled = !!st.used[b.getAttribute("data-l")] || st.locked; });
+  }
+
+  /* ===== פעולות ===== */
+  $("answers").onclick = function (e) {
+    var b = e.target.closest("button.ans"); if (!b || st.locked) return;
+    A(); st.sel = +b.getAttribute("data-i"); S.sel(); drawAns(); $("lock").disabled = false;
+  };
+  $("lock").onclick = function () {
+    if (st.sel < 0 || st.locked) return;
+    st.locked = true; $("lock").disabled = true; drawLifes(); bedStop(); S.lock();
+    setTimeout(reveal, 1900);
+  };
+  function reveal() {
+    var kids = $("answers").children, ok = st.opts[st.sel].ok, i;
+    for (i = 0; i < kids.length; i++) if (st.opts[i].ok) kids[i].classList.add("ok");
+    if (ok) {
+      S.ok(); confetti(22);
+      if (st.lvl === 14) { setTimeout(function () { end("win"); }, 2200); return; }
+      $("lock").classList.add("hide"); $("next").classList.remove("hide");
+    } else {
+      kids[st.sel].classList.add("bad"); kids[st.sel].classList.remove("sel"); S.bad();
+      setTimeout(function () { end("lose"); }, 2800);
+    }
+  }
+  $("next").onclick = function () { st.lvl++; loadQ(); window.scrollTo(0, 0); };
+  $("walk").onclick = function () {
+    if (st.locked) return;
+    if (st.walkArmed) { st.walkArmed = false; end("walk"); return; }
+    st.walkArmed = true; var w = $("walk"), keep = w.textContent;
+    w.textContent = "לחצו שוב כדי לאשר פרישה ולקחת את הנקודות";
+    setTimeout(function () { st.walkArmed = false; if (!st.locked) w.textContent = keep; }, 4000);
+  };
+  $("lifes").onclick = function (e) {
+    var b = e.target.closest("button.life"); if (!b || b.disabled || st.locked) return;
+    var k = b.getAttribute("data-l"), alive = [], ci = 0, i, h = "", others, sum, p, r, pf, pick, conf;
+    A(); st.used[k] = 1; S.life(k);
+    st.opts.forEach(function (o, i) { if (!st.gone[i]) alive.push(i); if (o.ok) ci = i; });
+    if (k === "r") {
+      shuffle(alive.filter(function (i) { return i !== ci; })).slice(0, 2).forEach(function (i) { st.gone[i] = 1; });
+      if (st.gone[st.sel]) { st.sel = -1; $("lock").disabled = true; }
+      drawAns(); h = "הוסרו שתי תשובות שגויות.";
+    } else if (k === "a") {
+      p = Math.min(0.95, Math.max(0.35, 0.92 - st.lvl * 0.04) * (0.88 + Math.random() * 0.24));
+      others = alive.filter(function (i) { return i !== ci; });
+      r = others.map(function () { return Math.random() + 0.2; }); sum = r.reduce(function (a, b) { return a + b; }, 0);
+      var pc = {}; pc[ci] = Math.round(p * 100);
+      others.forEach(function (i, j) { pc[i] = Math.round((1 - p) * 100 * r[j] / sum); });
+      h = "<b>סקר הקהל (קהל מדומה, לא תמיד צודק):</b>";
+      for (i = 0; i < 4; i++) { p = pc[i] || 0; h += '<div class="bar"><span>' + "אבגד".charAt(i) + '</span><div style="width:' + Math.max(p, 2) + '%"></div><em>' + p + '%</em></div>'; }
+    } else {
+      pf = Math.max(0.4, 0.96 - st.lvl * 0.045);
+      pick = Math.random() < pf ? ci : shuffle(alive.filter(function (i) { return i !== ci; }))[0];
+      conf = pf > 0.8 ? "אני כמעט בטוח" : (pf > 0.6 ? "אני נוטה לחשוב" : "אני לא ממש יודע, אבל אולי");
+      h = "<b>החבר הדמיוני (מחשב) אומר:</b><br>“" + conf + " שזו תשובה " + "אבגד".charAt(pick) + ".”";
+    }
+    $("help").innerHTML = h; $("help").classList.remove("hide"); drawLifes();
+  };
+
+  function end(kind) {
+    var pts = 0, i, em, t, tx, lv = st.lvl;
+    st.over = true; bedStop();
+    if (kind === "win") pts = PRIZES[14];
+    else if (kind === "walk") pts = lv > 0 ? PRIZES[lv - 1] : 0;
+    else for (i = 0; i < SAFE.length; i++) if (SAFE[i] < lv) pts = PRIZES[SAFE[i]];
+    if (kind === "win") { em = "🏆"; t = "הגעתם לפסגה!"; tx = "מיליון נקודות. זיכרון של אלופים!"; S.win(); confetti(140); }
+    else if (kind === "walk") { em = "🤝"; t = "פרשתם בזמן"; tx = "החלטה חכמה: לקחתם את הנקודות והמשכתם הלאה."; }
+    else { em = "💥"; t = "המשחק נגמר"; tx = "טעיתם בשאלה " + (lv + 1) + ". הנקודות הבטוחות נשמרו אצלכם."; }
+    $("eEm").textContent = em; $("eT").textContent = t; $("ePts").textContent = fmt(pts) + " נקודות"; $("eTx").textContent = tx;
+    var url = location.origin + location.pathname;
+    curText = kind === "win" ? "🏆 הגעתי למיליון נקודות בסולם הנוסטלגיה! כמה אתם זוכרים משנות ה-80 וה-90?" :
+      "🎯 צברתי " + fmt(pts) + " נקודות והגעתי לשאלה " + (kind === "walk" ? lv : lv + 1) + " מתוך 15 בסולם הנוסטלגיה! תצליחו לעבור אותי?";
+    $("eShare").innerHTML = shareBtns(curText, url, true);
+    $("cardImg").classList.add("hide"); cardBlob = null;
+    drawCard(pts, kind === "walk" ? lv : lv + 1, kind === "win");
+    show("end"); window.scrollTo(0, 0);
+  }
+  function shareBtns(text, url, img) {
+    return '<a class="btn fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + "&quote=" + encodeURIComponent(text) + '">שתפו בפייסבוק 🚀</a>' +
+      '<a class="btn wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text=' + encodeURIComponent(text + "\n" + url) + '">שלחו בוואטסאפ 💬</a>' +
+      '<button class="btn sec" type="button" data-act="copy">העתיקו כטקסט לתגובה 📋</button>' +
+      (img ? '<button class="btn sec" type="button" data-act="img">שתפו תמונת תוצאה 🖼️</button>' : "");
+  }
+  function drawCard(pts, lvl, win) {
+    var c = document.createElement("canvas"), x = c.getContext("2d"), W = 1080;
+    c.width = c.height = W;
+    function p() {
+      var g = x.createLinearGradient(0, 0, 0, W); g.addColorStop(0, "#341a4d"); g.addColorStop(1, "#14071c");
+      x.fillStyle = g; x.fillRect(0, 0, W, W);
+      x.strokeStyle = "#ffc93c"; x.lineWidth = 14; x.strokeRect(40, 40, W - 80, W - 80);
+      x.direction = "rtl"; x.textAlign = "center";
+      x.fillStyle = "#ffc93c"; x.font = "800 96px Heebo,Arial"; x.fillText("סולם הנוסטלגיה", W / 2, 220);
+      x.fillStyle = "#fff"; x.font = "500 44px Heebo,Arial"; x.fillText("שנות ה-80 וה-90 בישראל ובעולם", W / 2, 300);
+      x.font = "130px Arial"; x.fillText(win ? "🏆" : "🎯", W / 2, 480);
+      x.fillStyle = "#ffc93c"; x.font = "800 150px Heebo,Arial"; x.fillText(fmt(pts), W / 2, 680);
+      x.fillStyle = "#fff"; x.font = "600 54px Heebo,Arial"; x.fillText("נקודות", W / 2, 760);
+      x.font = "500 46px Heebo,Arial"; x.fillText("הגעתי לשאלה " + lvl + " מתוך 15", W / 2, 850);
+      x.fillStyle = "#b9a9cf"; x.font = "500 38px Heebo,Arial"; x.fillText("תצליחו לעבור אותי? " + SITE, W / 2, 960);
+      $("cardImg").src = c.toDataURL("image/png"); $("cardImg").classList.remove("hide");
+      c.toBlob(function (b) { cardBlob = b; }, "image/png");
+    }
+    if (document.fonts && document.fonts.load) document.fonts.load("800 60px Heebo").then(p, p); else p();
+  }
+  function toast(m) {
+    var t = $("toast"); t.textContent = m; t.classList.remove("hide");
+    clearTimeout(toast._t); toast._t = setTimeout(function () { t.classList.add("hide"); }, 3500);
+  }
+  function copyText(txt) {
+    function fb() { var t = document.createElement("textarea"); t.value = txt; t.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); toast("הועתק! אפשר להדביק כתגובה בקבוצה."); } catch (e) { toast("לא הצלחנו להעתיק."); } document.body.removeChild(t); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function () { toast("הועתק! אפשר להדביק כתגובה בקבוצה."); }, fb); else fb();
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-act],[data-doc]"); if (!b) return;
+    var act = b.getAttribute("data-act"), doc = b.getAttribute("data-doc"), url = location.origin + location.pathname;
+    if (doc) openDoc(doc);
+    else if (act === "sharegame") shareGame();
+    else if (act === "copy") copyText(curText + "\n" + url);
+    else if (act === "img") {
+      if (!cardBlob) { toast("התמונה עדיין נוצרת, נסו שוב בעוד רגע"); return; }
+      var f; try { f = new File([cardBlob], "nostalgia-ladder.png", { type: "image/png" }); } catch (x) { f = null; }
+      if (f && navigator.canShare && navigator.canShare({ files: [f] })) navigator.share({ files: [f], text: curText }).catch(function () {});
+      else { var a = document.createElement("a"); a.href = URL.createObjectURL(cardBlob); a.download = "nostalgia-ladder.png"; document.body.appendChild(a); a.click(); document.body.removeChild(a); }
+    }
+  });
+    $("again").onclick = function () { if (RELOAD_ON_REPLAY) { location.reload(); return; } newGame(); window.scrollTo(0, 0); };
+  function shareGame() {
+    var url = location.origin + location.pathname, tx = "🎤 סולם הנוסטלגיה: 15 שאלות משנות ה-80 וה-90, שלושה עזרים ומיליון נקודות. כמה גבוה תעלו?";
+    if (navigator.share) { navigator.share({ title: "סולם הנוסטלגיה", text: tx, url: url }).catch(function () {}); return; }
+    curText = tx; openHtml("שתפו את המשחק", shareBtns(tx, url, false));
+  }
+
+  /* ===== חלונות מידע ===== */
+  var MAIL = CONTACT_EMAIL ? '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>' : "[יש להוסיף כתובת דוא״ל בקובץ index.html, בשורת CONTACT_EMAIL]";
+  var DOCS = {
+    how: ["איך משחקים", "<p>המטרה: לעלות בסולם של 15 שאלות נוסטלגיה משנות ה-80 וה-90, מהארץ ומהעולם, ולהגיע למיליון נקודות.</p><ol><li>לוחצים על תשובה, ואז על ״נעלו תשובה״. עד הנעילה אפשר להחליף.</li><li>תשובה נכונה מעלה אתכם שלב. תשובה שגויה מסיימת את המשחק.</li><li>שלבים 5 ו-10 הם תחנות בטוחות. אם טעיתם אחריהן, אתם שומרים את נקודות התחנה האחרונה שעברתם. אם טעיתם לפני התחנה הראשונה, מסיימים עם אפס.</li><li>בכל שלב, לפני נעילה, אפשר לפרוש ולקחת את הנקודות שצברתם עד כה.</li></ol><h3>שלושת העזרים (כל אחד פעם אחת)</h3><ul><li><b>הסרת שתי תשובות:</b> שתי תשובות שגויות נעלמות.</li><li><b>סקר הקהל:</b> הקהל מדומה על ידי המחשב. הוא נוטה לצדוק, אבל פחות ופחות ככל שהשאלות קשות יותר.</li><li><b>עזרת חבר:</b> חבר דמיוני (מחשב) נותן הצעה. גם הוא טועה לפעמים, במיוחד בשאלות הקשות.</li></ul><p>הנקודות וירטואליות בלבד ואין פרסים. שאלות חדשות מתווספות מדי פעם, אז כדאי לחזור.</p>"],
+    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 3 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו.</p><p>אם תשתתפו בצ’אט, הכינוי וההודעות שתכתבו פומביים, נראים לכל השחקנים ונשמרים בשרתי Firebase של גוגל. מונה השחקנים משתמש במזהה אקראי זמני שנמחק עם סגירת העמוד. אל תשתפו בצ’אט פרטים אישיים.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג פרסומות באמצעות רשת הפרסום Adsterra (תבנית Social Bar). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כמו כתובת IP, סוג מכשיר ודפדפן, כדי להציג ולמדוד פרסומות. פרטים נוספים במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר להגביל קובצי Cookie של צד שלישי בהגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
+    terms: ["תנאי שימוש", "<p>עודכן לאחרונה: 3 בנובמבר 2026. השימוש באתר ״" + SITE + "״ מהווה הסכמה לתנאים הבאים.</p><h3>מהות האתר</h3><p>האתר הוא משחק טריוויה למטרות בידור בלבד. הנקודות וירטואליות, ואין בהן ערך כספי ואין פרסים.</p><h3>אי-שיוך</h3><p>האתר עצמאי ואינו קשור, מזוהה או מאושר על ידי שום תוכנית טלוויזיה, חברה או מותג. שמות ומותגים שמוזכרים בשאלות שייכים לבעליהם ומוזכרים לצורכי זיהוי והקשר היסטורי בלבד.</p><h3>דיוק התוכן</h3><p>אנחנו משתדלים לבדוק כל שאלה ותשובה, אך אין התחייבות לשלמות או לדיוק. התוכן ניתן כפי שהוא (AS IS). אם מצאתם טעות, נשמח שתכתבו לנו.</p><h3>קניין רוחני</h3><p>עיצוב האתר, הקוד, הצלילים והשאלות נוצרו עבור האתר ושייכים למפעיליו. אין להעתיק, למכור או להפיץ אותם ללא רשות. שיתוף קישור לאתר ושיתוף התוצאה שלכם מותרים ומבורכים.</p><h3>שימוש הוגן</h3><p>אסור לפגוע בפעולת האתר, לעקוף אותו באמצעים אוטומטיים או להשתמש בו לצורך הפרת חוק.</p><h3>כללי הצ’אט</h3><p>אסור לכתוב גידופים, איומים, הטרדות, פרסומות, קישורים או פרטים אישיים. אנחנו רשאים למחוק הודעות ולחסום שימוש בצ’אט לפי שיקול דעתנו. התוכן בצ’אט הוא באחריות כותביו.</p><h3>פרסומות וקישורים</h3><p>האתר עשוי להציג פרסומות וקישורים לאתרים אחרים. איננו אחראים לתוכן שלהם.</p><h3>הגבלת אחריות</h3><p>השימוש באתר הוא באחריותכם בלבד. במידה המרבית המותרת בדין, המפעילים אינם אחראים לכל נזק הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו.</p><h3>שינויים ודין חל</h3><p>נוכל לעדכן את התנאים ואת האתר בכל עת. על התנאים יחולו דיני מדינת ישראל, וסמכות השיפוט בלעדית לבתי המשפט המוסמכים בישראל. ליצירת קשר: " + MAIL + ".</p>"]
+  };
+  var dlg = $("dlg");
+  function openHtml(t, h) {
+    $("dt").textContent = t; $("db").innerHTML = h;
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+    $("db").scrollTop = 0;
+  }
+  function openDoc(k) { openHtml(DOCS[k][0], DOCS[k][1]); }
+  document.addEventListener("pointerdown", function () { A(); if (st.opts && !st.locked && !st.over) bedStart(); });
+  $("dx").onclick = function () { dlg.close ? dlg.close() : dlg.removeAttribute("open"); };
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) $("dx").onclick(); });
+
+  /* ===== צ’אט ומונה שחקנים בזמן אמת (Firebase Realtime Database) =====
+     כדי להפעיל: למלא את FIREBASE_CONFIG (הוראות בתשובה). כל עוד databaseURL ריק, הצ’אט והמונה מוסתרים. */
+  var CHAT_DEMO = false;    /* true רק בתצוגה מקדימה: צ’אט מקומי בלי שרת */
+  var FIREBASE_CONFIG = { apiKey: "AIzaSyCnYSXEio-m7hwfBvBb9APLlY_vSHHw3eQ", authDomain: "nostalgia-quiz-d6f0e.firebaseapp.com", databaseURL: "https://nostalgia-quiz-d6f0e-default-rtdb.europe-west1.firebasedatabase.app", projectId: "nostalgia-quiz-d6f0e", appId: "1:8236965030:web:9e8bf2ebbd1630c470a867" };
+  var BLOCK = ["זונה", "שרמוטה", "בן זונה", "מניאק", "כוס אמק", "חרא", "מזדיין", "מפגר"];   /* אפשר להרחיב */
+  var db = null, lastSend = 0, mine = {};
+  function setOnline(n, demo) {
+    var t = n + " אונליין" + (demo ? " (הדגמה)" : "");
+    $("onl").textContent = t; $("onl2").textContent = t;
+    $("onl").classList.remove("hide"); $("chat").classList.remove("hide");
+  }
+  function cleanMsg(t) {
+    t = String(t).replace(/\s+/g, " ").trim().slice(0, 200);
+    if (/https?:|www\.|\.(com|co|il|net|org|ru|xyz)\b|\d{7,}/i.test(t)) return "";
+    BLOCK.forEach(function (w) { t = t.split(w).join(new Array(w.length + 1).join("•")); });
+    return t;
+  }
+  function addMsg(n, t, me) {
+    var m = $("msgs"), p = document.createElement("p");
+    p.className = me ? "me" : "";
+    p.innerHTML = "<b>" + esc(n) + ":</b> " + esc(t);
+    m.appendChild(p);
+    while (m.children.length > 60) m.removeChild(m.firstChild);
+    m.scrollTop = m.scrollHeight;
+  }
+  function sendMsg() {
+    var name = $("cn").value.replace(/[<>&"]/g, "").trim().slice(0, 16) || ("שחקן" + (st.nick = st.nick || Math.floor(100 + Math.random() * 900)));
+    var text = cleanMsg($("ct").value), r;
+    if (!$("ct").value.trim()) return;
+    if (!text) { toast("קישורים, מספרי טלפון והודעות ריקות אינם מותרים בצ’אט."); return; }
+    if (Date.now() - lastSend < 2500) { toast("לאט יותר, אפשר לשלוח הודעה כל כמה שניות."); return; }
+    lastSend = Date.now(); $("ct").value = "";
+    if (db) {
+      r = db.ref("chat").push(); mine[r.key] = 1;
+      r.set({ n: name, t: text, ts: firebase.database.ServerValue.TIMESTAMP });
+    } else { addMsg(name, text, true); }
+  }
+  $("cs").onclick = sendMsg;
+  $("ct").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); sendMsg(); } });
+  function startChat() {
+    var id = Math.random().toString(36).slice(2, 12), me = db.ref("online/" + id);
+    db.ref(".info/connected").on("value", function (s) { if (s.val()) { me.onDisconnect().remove(); me.set(true); } });
+    db.ref("online").on("value", function (s) { setOnline(s.numChildren()); });
+    db.ref("chat").limitToLast(40).on("child_added", function (s) { var v = s.val() || {}; addMsg(v.n || "שחקן", v.t || "", !!mine[s.key]); });
+  }
+  function startDemo() {
+    var n = 9;
+    $("demo").classList.remove("hide"); setOnline(n, true);
+    addMsg("דנית", "איזה כיף לחזור לשנות ה-90!", false); addMsg("יוסי", "שאלה 7 הייתה קשה", false); addMsg("מיכל", "הגעתי ל-25,000 נקודות 😎", false);
+    setInterval(function () { n = Math.max(4, Math.min(16, n + Math.floor(Math.random() * 3) - 1)); setOnline(n, true); }, 4000);
+  }
+  if (FIREBASE_CONFIG.databaseURL) {
+    (function load(i) {
+      var urls = ["https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js", "https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"], sc;
+      if (i === urls.length) { try { firebase.initializeApp(FIREBASE_CONFIG); db = firebase.database(); startChat(); } catch (e) {} return; }
+      sc = document.createElement("script"); sc.src = urls[i]; sc.onload = function () { load(i + 1); }; document.head.appendChild(sc);
+    })(0);
+  } else if (CHAT_DEMO) { startDemo(); }
+
+  /* מתאים כל באנר אופקי, בכל גודל, לרוחב המסך: אם הוא רחב מהמסך הוא מוקטן אוטומטית, ושאר העמוד לא משתנה */
+  function fitAds() {
+    Array.prototype.forEach.call(document.querySelectorAll(".slot"), function (w) {
+      var n = w.firstElementChild, cw = w.clientWidth, nw, k;
+      if (!n || !cw) return;
+      n.style.transform = "translateX(-50%)";
+      nw = Math.max(n.scrollWidth, n.offsetWidth);
+      k = Math.min(1, cw / nw);
+      n.style.transform = "translateX(-50%) scale(" + k + ")";
+      w.style.height = Math.ceil(n.offsetHeight * k) + "px";
+    });
+  }
+  fitAds(); window.addEventListener("resize", fitAds); window.addEventListener("orientationchange", fitAds); window.addEventListener("load", fitAds);
+  setTimeout(fitAds, 800); setTimeout(fitAds, 3000);
+  if (window.ResizeObserver) { Array.prototype.forEach.call(document.querySelectorAll(".slot-in"), function (n) { new ResizeObserver(fitAds).observe(n); }); }
+  newGame();
+})();
+</script>
+<!-- ===== מודעות: הדביקו כאן את קוד ההפעלה של המודעה (תג script). הספרייה aclib כבר נמצאת ב-head. ===== -->
+</body>
+</html>
