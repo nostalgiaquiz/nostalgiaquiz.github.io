@@ -134,11 +134,17 @@ body:after{background:radial-gradient(55vmax 55vmax at 6% 106%,rgba(0,200,230,.3
 @keyframes pulse{from{opacity:.55}to{opacity:1}}
 html{overflow-x:hidden}
 #stage{position:relative}
-/* באנרי 728x90 מוצגים רק כשהרוחב מאפשר להציג אותם בגודלם המקורי. */
-.slot{display:none;position:relative;width:100%;max-width:100%;height:0;margin:0 auto 14px;overflow:hidden}
-.slot-in{position:absolute;top:0;left:50%;width:728px;min-width:0;height:90px;transform:translateX(-50%);text-align:center}
+/* באנרים אופקיים: 728x90 במחשב ו-320x50 בטלפונים. */
+.slot{display:block;position:relative;width:100%;max-width:100%;height:90px;margin:0 auto 14px;overflow:hidden}
+.slot-in{position:absolute;top:0;left:50%;min-width:0;transform:translateX(-50%) scale(var(--ad-scale,1));transform-origin:top center;text-align:center}
 .slot-in>*{margin-left:auto;margin-right:auto}
-@media(min-width:760px){.slot{display:block;height:90px}}
+.ad-desktop{display:block;width:728px;height:90px}
+.ad-mobile{display:none;width:320px;height:50px}
+@media(max-width:759px){
+  .slot{height:50px}
+  .ad-desktop{display:none}
+  .ad-mobile{display:block}
+}
 /* באנרי הצד של Adsterra הם 160x600 ולכן מוקצים להם 160 פיקסלים מלאים. */
 .side{display:none}
 @media(min-width:1200px){
@@ -155,18 +161,32 @@ html{overflow-x:hidden}
   <header class="top"><div class="logo">★</div><div><h1>סולם הנוסטלגיה</h1><p class="sub">15 שאלות משנות ה-80 וה-90 ומיליון נקודות בפסגה. <button class="lnk" type="button" data-doc="how">איך משחקים?</button></p></div><span class="on hide" id="onl" style="margin-inline-start:auto"></span></header>
 
   <!-- באנר Adsterra אופקי 728x90. מוצג במסכים שבהם ניתן להציגו בגודל המקורי. -->
-  <div class="slot" id="adTop"><div class="slot-in ad-inner"><div class="ph" style="width:728px;height:90px">
-    <script>
-  atOptions = {
-    'key' : '81fae7dee4c9bc11b8a6ae767a86116b',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://bauval.org/22/81fae7dee4c9bc11b8a6ae767a86116b"></script>
-</div></div></div>
+  <div class="slot" id="adTop">
+    <div class="slot-in ad-inner ad-desktop"><div class="ph" style="width:728px;height:90px">
+      <script>
+        atOptions = {
+          'key' : '81fae7dee4c9bc11b8a6ae767a86116b',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/81fae7dee4c9bc11b8a6ae767a86116b"></script>
+    </div></div>
+    <div class="slot-in ad-inner ad-mobile"><div class="ph" style="width:320px;height:50px">
+      <script>
+        atOptions = {
+          'key' : '8dd5ad04d5b668122c57f5d02d8ea2aa',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/8dd5ad04d5b668122c57f5d02d8ea2aa"></script>
+    </div></div>
+  </div>
 
   
 
@@ -187,18 +207,32 @@ html{overflow-x:hidden}
 
 
           <!-- באנר Adsterra אופקי 728x90 מעל הצ’אט. -->
-          <div class="slot" id="adChat"><div class="slot-in ad-inner"><div class="ph" style="width:728px;height:90px">
-    <script>
-  atOptions = {
-    'key' : '81fae7dee4c9bc11b8a6ae767a86116b',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://bauval.org/22/81fae7dee4c9bc11b8a6ae767a86116b"></script>
-</div></div></div>
+          <div class="slot" id="adChat">
+    <div class="slot-in ad-inner ad-desktop"><div class="ph" style="width:728px;height:90px">
+      <script>
+        atOptions = {
+          'key' : '81fae7dee4c9bc11b8a6ae767a86116b',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/81fae7dee4c9bc11b8a6ae767a86116b"></script>
+    </div></div>
+    <div class="slot-in ad-inner ad-mobile"><div class="ph" style="width:320px;height:50px">
+      <script>
+        atOptions = {
+          'key' : '8dd5ad04d5b668122c57f5d02d8ea2aa',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/8dd5ad04d5b668122c57f5d02d8ea2aa"></script>
+    </div></div>
+  </div>
 
           <div class="chat hide" id="chat">
             <div class="ch"><span>💬 צ’אט השחקנים</span><span class="on" id="onl2"></span><button class="lnk" type="button" data-doc="privacy">כללים ופרטיות</button></div>
@@ -565,7 +599,7 @@ html{overflow-x:hidden}
   var MAIL = CONTACT_EMAIL ? '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>' : "[יש להוסיף כתובת דוא״ל בקובץ index.html, בשורת CONTACT_EMAIL]";
   var DOCS = {
     how: ["איך משחקים", "<p>המטרה: לעלות בסולם של 15 שאלות נוסטלגיה משנות ה-80 וה-90, מהארץ ומהעולם, ולהגיע למיליון נקודות.</p><ol><li>לוחצים על תשובה, ואז על ״נעלו תשובה״. עד הנעילה אפשר להחליף.</li><li>תשובה נכונה מעלה אתכם שלב. תשובה שגויה מסיימת את המשחק.</li><li>שלבים 5 ו-10 הם תחנות בטוחות. אם טעיתם אחריהן, אתם שומרים את נקודות התחנה האחרונה שעברתם. אם טעיתם לפני התחנה הראשונה, מסיימים עם אפס.</li><li>בכל שלב, לפני נעילה, אפשר לפרוש ולקחת את הנקודות שצברתם עד כה.</li></ol><h3>שלושת העזרים (כל אחד פעם אחת)</h3><ul><li><b>הסרת שתי תשובות:</b> שתי תשובות שגויות נעלמות.</li><li><b>סקר הקהל:</b> הקהל מדומה על ידי המחשב. הוא נוטה לצדוק, אבל פחות ופחות ככל שהשאלות קשות יותר.</li><li><b>עזרת חבר:</b> חבר דמיוני (מחשב) נותן הצעה. גם הוא טועה לפעמים, במיוחד בשאלות הקשות.</li></ul><p>הנקודות וירטואליות בלבד ואין פרסים. שאלות חדשות מתווספות מדי פעם, אז כדאי לחזור.</p>"],
-    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 3 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו. בנוסף נשמר בדפדפן שלכם, בלשונית הנוכחית בלבד, מזהה טכני של סדר השאלות במשחק האחרון, כדי שהסדר לא יחזור על עצמו.</p><p>אם תשתתפו בצ’אט, הכינוי וההודעות שתכתבו פומביים, נראים לכל השחקנים ונשמרים בשרתי Firebase של גוגל. מונה השחקנים משתמש במזהה אקראי זמני שנמחק עם סגירת העמוד. אל תשתפו בצ’אט פרטים אישיים.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג באנרים של רשת הפרסום Adsterra, לרבות באנרים אופקיים בגודל 728×90 ובאנרים צדדיים בגודל 160×600 (בהתאם לרוחב המסך). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כגון כתובת IP, סוג מכשיר ודפדפן לצורך הצגת פרסומות, מדידתן ומניעת הונאות. מידע נוסף מופיע במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר לנהל או להגביל קובצי Cookie דרך הגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
+    privacy: ["מדיניות פרטיות", "<p>עודכן לאחרונה: 3 בנובמבר 2026. האתר ״" + SITE + "״ הוא משחק טריוויה בידורי.</p><h3>מידע שאנחנו אוספים</h3><p>האתר אינו דורש הרשמה ואיננו אוספים שמות, כתובות דוא״ל או פרטים אישיים אחרים. מצב המשחק נשמר בזיכרון הדפדפן בלבד, בזמן המשחק, ואינו נשלח אלינו. בנוסף נשמר בדפדפן שלכם, בלשונית הנוכחית בלבד, מזהה טכני של סדר השאלות במשחק האחרון, כדי שהסדר לא יחזור על עצמו.</p><p>אם תשתתפו בצ’אט, הכינוי וההודעות שתכתבו פומביים, נראים לכל השחקנים ונשמרים בשרתי Firebase של גוגל. מונה השחקנים משתמש במזהה אקראי זמני שנמחק עם סגירת העמוד. אל תשתפו בצ’אט פרטים אישיים.</p><h3>שירותי צד שלישי</h3><ul><li><b>אחסון:</b> האתר מתארח ב-GitHub Pages. ייתכן ש-GitHub תתעד כתובות IP וביקורים לפי מדיניות הפרטיות שלה.</li><li><b>גופנים:</b> האתר טוען גופנים מ-Google Fonts, ולכן כתובת ה-IP שלכם עשויה להישלח לגוגל.</li><li><b>פרסומות:</b> האתר מציג באנרים של רשת הפרסום Adsterra, לרבות באנרים אופקיים בגודל 728×90 במחשבים ובגודל 320×50 במכשירים סלולריים, וכן באנרים צדדיים בגודל 160×600 (בהתאם לרוחב המסך). Adsterra וספקי פרסום הפועלים דרכה עשויים להשתמש בקובצי Cookie ובמזהים דומים, ולעבד נתונים כגון כתובת IP, סוג מכשיר ודפדפן לצורך הצגת פרסומות, מדידתן ומניעת הונאות. מידע נוסף מופיע במדיניות הפרטיות של Adsterra באתר adsterra.com. אפשר לנהל או להגביל קובצי Cookie דרך הגדרות הדפדפן.</li><li><b>שיתוף:</b> לחיצה על כפתורי השיתוף פותחת את פייסבוק או וואטסאפ, והמידע שתשתפו כפוף למדיניות הפרטיות שלהם.</li></ul><h3>ילדים</h3><p>האתר אינו מיועד לילדים מתחת לגיל 13 ואיננו אוספים ביודעין מידע עליהם.</p><h3>שינויים ויצירת קשר</h3><p>ייתכנו עדכונים במדיניות, והגרסה העדכנית תופיע כאן. לשאלות: " + MAIL + ".</p>"],
     terms: ["תנאי שימוש", "<p>עודכן לאחרונה: 3 בנובמבר 2026. השימוש באתר ״" + SITE + "״ מהווה הסכמה לתנאים הבאים.</p><h3>מהות האתר</h3><p>האתר הוא משחק טריוויה למטרות בידור בלבד. הנקודות וירטואליות, ואין בהן ערך כספי ואין פרסים.</p><h3>אי-שיוך</h3><p>האתר עצמאי ואינו קשור, מזוהה או מאושר על ידי שום תוכנית טלוויזיה, חברה או מותג. שמות ומותגים שמוזכרים בשאלות שייכים לבעליהם ומוזכרים לצורכי זיהוי והקשר היסטורי בלבד.</p><h3>דיוק התוכן</h3><p>אנחנו משתדלים לבדוק כל שאלה ותשובה, אך אין התחייבות לשלמות או לדיוק. התוכן ניתן כפי שהוא (AS IS). אם מצאתם טעות, נשמח שתכתבו לנו.</p><h3>קניין רוחני</h3><p>עיצוב האתר, הקוד, הצלילים והשאלות נוצרו עבור האתר ושייכים למפעיליו. אין להעתיק, למכור או להפיץ אותם ללא רשות. שיתוף קישור לאתר ושיתוף התוצאה שלכם מותרים ומבורכים.</p><h3>שימוש הוגן</h3><p>אסור לפגוע בפעולת האתר, לעקוף אותו באמצעים אוטומטיים או להשתמש בו לצורך הפרת חוק.</p><h3>כללי הצ’אט</h3><p>אסור לכתוב גידופים, איומים, הטרדות, פרסומות, קישורים או פרטים אישיים. אנחנו רשאים למחוק הודעות ולחסום שימוש בצ’אט לפי שיקול דעתנו. התוכן בצ’אט הוא באחריות כותביו.</p><h3>פרסומות וקישורים</h3><p>האתר עשוי להציג פרסומות וקישורים לאתרים אחרים. איננו אחראים לתוכן שלהם.</p><h3>הגבלת אחריות</h3><p>השימוש באתר הוא באחריותכם בלבד. במידה המרבית המותרת בדין, המפעילים אינם אחראים לכל נזק הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו.</p><h3>שינויים ודין חל</h3><p>נוכל לעדכן את התנאים ואת האתר בכל עת. על התנאים יחולו דיני מדינת ישראל, וסמכות השיפוט בלעדית לבתי המשפט המוסמכים בישראל. ליצירת קשר: " + MAIL + ".</p>"]
   };
   var dlg = $("dlg");
@@ -638,11 +672,28 @@ html{overflow-x:hidden}
     })(0);
   } else if (CHAT_DEMO) { startDemo(); }
 
-  /* באנרי 728x90 אינם מוקטנים באמצעות transform; במסכים צרים הם מוסתרים כדי למנוע חיתוך או הקטנה קיצונית. */
+  /* התאמת גודל התצוגה ליחידת הפרסום המתאימה: 728x90 במחשב, 320x50 בנייד. */
+  function fitHorizontalAds() {
+    var mobile = window.matchMedia("(max-width: 759px)").matches;
+    var slots = document.querySelectorAll(".slot");
+    slots.forEach(function (slot) {
+      var inner = slot.querySelector(mobile ? ".ad-mobile" : ".ad-desktop");
+      if (!inner) return;
+      var baseWidth = mobile ? 320 : 728;
+      var baseHeight = mobile ? 50 : 90;
+      var availableWidth = slot.clientWidth || document.documentElement.clientWidth || window.innerWidth;
+      var scale = Math.min(1, Math.max(0.1, availableWidth / baseWidth));
+      inner.style.setProperty("--ad-scale", String(scale));
+      slot.style.height = (baseHeight * scale) + "px";
+    });
+  }
+  window.addEventListener("resize", fitHorizontalAds, { passive: true });
+  window.addEventListener("orientationchange", fitHorizontalAds);
+  fitHorizontalAds();
+
   newGame();
 })();
 </script>
 <!-- קודי Adsterra המקוריים משובצים במיקומי המודעות שבגוף העמוד. -->
-  <script data-cfasync="false" src="https://bauval.org/14/29fe617bf835db6d99cd50f1e6f971b9"></script>
 </body>
 </html>
